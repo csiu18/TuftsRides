@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="bus_logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tufts Rides</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+
+body {
+    margin: 0;
+    font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif; 
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background: #537eb1;
+}
+
+.logo {
+    height: 80px;
+    margin: 10px auto;
+}
+
+#hamb {
+    float: right;
+    font-size: 50px;
+    margin: 25px 15px;
+    color: white;
+}
+
+.map {
+    border: 2px solid blue;
+    height: 500px;
+}
+
+.background {
+    background: #3e6491;
+    height: 710px;
+}
+
+.sbar {
+    background: #537eb1; /*#1c1c1e;*/
+    height: 75px;
+}
+
+.sbar input {
+    width: 88%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 2%;
+    padding-left: 5px;
+    font-size: 25px;
+}
+
+#search {
+    color: white;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+#search:hover {
+    cursor: pointer;
+}
+
+.favorites {
+    height: 50px;
+    width: 97.5%;
+    background: #537eb1;
+    margin: 20px 0 20px 0;
+    padding-left: 2.5%;
+}
+
+.favorites h3 {
+    padding: 15px 0;
+    font-size: 22px;
+}
+
+.stop {
+    margin: 20px 2%;
+    height: 150px;
+    border: 5px solid #537eb1;
+    border-left-color: white;
+    border-left-width: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.stop h3 {
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.time {
+    color: white;
+    font-size: 30px;
+    float: right;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 75px;
+    height: 75px;
+    padding: 15px; 
+    margin: 0 5px; 
+    font-weight: 600;
+}
+
+.dest {
+    font-size: 20px;
+    color: #1c1c1e;
+    margin-top: 20px;
+}
+
+#arrow {
+    margin-left: 20px;
+    margin-right: 10px;
+    color: #1c1c1e;
+
+}
+.footer {
+    height: 200px;
+    width: 100%;
+    background: #537eb1;
+}
+
+</style>
+
+<script type="text/javascript">
+    function getResults(){
+        alert("hi");
+        // based on search results, it will display wanted stop by calling a
+        // request/pulling from database
+    }
+
+</script>
+
+</head>
+<body>
+
+<div class="header">
+    <a href="index.html"><img class="logo" src="logo.png"></a>
+    <i id="hamb" class="fa fa-bars"></i>
+</div>
+
+<div class="map">This is where map will go.</div>
+
+<div class=background>
+    <div class="sbar">
+        <input type="text" placeholder="Search for a stop...">
+        <i id="search" class="fa fa-search" onclick="getResults()"></i>
+    </div>
+
+    <div class="favorites">
+        <h3>FAVORITES</h3>
+    </div>
+
+    <div class="results">
+        <div class="stop">
+            <h3>CAMPUS CENTER FRONT<div class="time">5 min</div><div class="time">10 min</div></h3>
+            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+        </div>
+        <div class="stop"></div>
+        <div class="stop"></div>
+    </div>
+</div>
+
+<div class="footer">This is footer.</div>
+
+</body>
+</html>
