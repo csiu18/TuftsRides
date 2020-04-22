@@ -125,6 +125,19 @@ body {
     width: 100%;
     background: #537eb1;
 }
+	
+	
+
+		
+.image {
+	display: inline;
+}
+		
+@media (max-width: 970px) {
+	.img {
+			display: none;
+	}
+}
 
 </style>
 
@@ -132,22 +145,43 @@ body {
 </head>
 <body>
 
+	
+	
 	<div class="header">
     	<a href="index.html"><img class="logo" src="logo.png"></a>
     	<i id="hamb" class="fa fa-bars"></i>
 	</div>
 
-	<div class="map" style="padding: 100px">
-		<h1>Contact</h1>
-		<p>
-			<h2>Transportation, Parking and IDs</h2>
-			<h2>Dowling Hall Garage, First Floor</h2>
-			<h2>419 Boston Ave</h2>
-			<h2>Medford,  MA  02155</h2>
-			<h2>617.627.3692</h2>
-		</p>
+	<div class="map">
+		
+	
+		<table align="center">
+			<tr>
+				<td>
+					<div class = "info" style="display: inline-block; text-align: left">
+						<h1>Contact</h1>
+						<p>
+							<h2>Transportation, Parking and IDs</h2>
+							<h2>Dowling Hall Garage, First Floor</h2>
+							<h2>419 Boston Ave</h2>
+							<h2>Medford,  MA  02155</h2>
+							<h2>617.627.3692</h2>
+						</p>
+					</div>
+				</td>
+				<td>
+					<div class="img">
+						<img src = "dowling-hall.jpg" style="padding: 50px" width="500em">
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		
 		
 	</div>
+	
+	
 
 
 	<div class="footer">This is footer.</div>
