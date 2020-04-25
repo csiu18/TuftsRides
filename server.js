@@ -36,11 +36,9 @@ async function getTime() {
     //     var m = stop.times[i].getMinutes();
     //     console.log(h + ":" + m);
 
-    //     if (h == hour) {
-    //         if (m > min) {
-    //             index = i; 
-    //             break;
-    //         }
+    //     if (h == hour && m > min) {
+    //         index = i; 
+    //         break;
     //     } else if (h > hour) {
     //         index = i;
     //         break;
