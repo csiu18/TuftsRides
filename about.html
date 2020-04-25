@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="bus_logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="bus_logo.png">
+
 <title>Tufts Rides</title>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="stylesheet.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="menu.js"></script>
 <style type="text/css">
 .img {
 	display: inline;
@@ -28,6 +34,18 @@
     	<a href="index.html"><img class="logo" src="logo.png"></a>
     	<i id="menu-ham" class="fa fa-bars"></i>
 	</div>
+
+    <div class="menu">
+        <div class="close-menu">
+            <i id="menu-ham" class="fa fa-bars" style="color: black"></i>    
+        </div>
+        <ul>
+            <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="index.html">Home</a></li>
+            <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="about.html">About</a></li>
+            <li><span class="menu-icon"><i class="fas fa-calendar"></i></span><a href=#>Schedule</a></li>
+            <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
 	<div class="map">
 		 <table align="center">
