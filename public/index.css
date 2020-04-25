@@ -98,7 +98,7 @@
     cursor: pointer;
 }
 
-.time1 {
+.time1, .time1a {
     color: white;
     font-size: 30px;
     float: right;
@@ -112,7 +112,7 @@
     font-weight: 600;
 }
 
-.time2 {
+.time2, .time1b {
     color: white;
     font-size: 25px;
     float: right;
