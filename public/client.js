@@ -14,44 +14,40 @@ const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
 async function getData() {
-    var response = await fetch('/ccfront');
+    var response = await fetch('/CC_P_Row');
     var timeObj = await response.json();
     time1a.innerHTML = timeObj.timea + ' min';
     time1b.innerHTML = timeObj.timeb + ' min';
 
-    console.log("davis");
-    response = await fetch('/davissq');
+    response = await fetch('/Davis');
     timeObj = await response.json();
     time2a.innerHTML = timeObj.timea + ' min';
     time2b.innerHTML = timeObj.timeb + ' min';
 
-    console.log("back");
-    response = await fetch('/ccback');
+    response = await fetch('/CC_Talbot');
     timeObj = await response.json();
     time3a.innerHTML = timeObj.timea + ' min';
     time3b.innerHTML = timeObj.timeb + ' min';
 
-    console.log("carm");
-    response = await fetch('/carm');
+    response = await fetch('/Carm');
     timeObj = await response.json();
     time4a.innerHTML = timeObj.timea + ' min';
     time4b.innerHTML = timeObj.timeb + ' min';
 
-    console.log("olin");
-    response = await fetch('/olin');
+    response = await fetch('/Olin');
     timeObj = await response.json();
     time5a.innerHTML = timeObj.timea + ' min';
     time5b.innerHTML = timeObj.timeb + ' min';
 
-    // response = await fetch('/aidekman');
-    // timeObj = await response.json();
-    // time6a.innerHTML = timeObj.timea + ' min';
-    // time6b.innerHTML = timeObj.timeb + ' min';
+    response = await fetch('/Aidekmann');
+    timeObj = await response.json();
+    time6a.innerHTML = timeObj.timea + ' min';
+    time6b.innerHTML = timeObj.timeb + ' min';
 
-    // response = await fetch('/smfa');
-    // timeObj = await response.json();
-    // time7a.innerHTML = timeObj.timea + ' min';
-    // time7b.innerHTML = timeObj.timeb + ' min';
+    response = await fetch('/SMFA');
+    timeObj = await response.json();
+    time7a.innerHTML = timeObj.timea + ' min';
+    time7b.innerHTML = timeObj.timeb + ' min';
 }
 
 getData();

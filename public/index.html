@@ -6,18 +6,34 @@
 
 <title>Tufts Rides</title>
 
+<!-- Style Sheets -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 <link rel="stylesheet" href="stylesheet.css">
 <link rel="stylesheet" href="index.css">
 
+<!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous">
 </script>
+<!---- Menu ---->
 <script type="text/javascript" src="menu.js"></script>
+<!----- Map ----->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
+
+<!-- Direction -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css" type="text/css" />
+
+<!-- Distance -->
+<script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
+
+<!-- LeafLet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 
 <script type="text/javascript">
-
     function getResults(){
         alert("hi");
         // based on search results, it will display wanted stop by calling a
@@ -38,39 +54,9 @@
     }
 
 </script>
-
-    <!----- Map ----->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
-  
-     <!-- Direction -->
-     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
-     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css" type="text/css" />
-
-     <!-- Distance -->
-     <script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
-
-     <!-- LeafLet -->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-
 </head>
 
- <body onload="getLocation()">
-    <style>
-    .marker {
-        display: block;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        padding: 0;
-    }
-
-    .mapboxgl-popup {
-        max-width: 400px;
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
-</style>
+<body onload="getLocation()">
 
 <!------------- HEADER & NAV MENU --------------->
 <div class="header">
