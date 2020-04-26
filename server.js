@@ -1,7 +1,6 @@
 var express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
-var url = require('url');
 
 app.use(express.static('public'));
 
@@ -20,40 +19,77 @@ async function startServer() {
     console.log('Listening on port 3000');
 }
 
-startServer();
-
-async function getTime() {
+async function getTime(stopName) {
     var today = new Date();
-    var hour = today.getHours();
+    var hour = today.getHours() - 3;
     var min = today.getMinutes();
     var index = 0;
     console.log("Current time: " + hour + ":" + min);
 
-    const stop = await coll.findOne({"station_name" : "Campus Center Professor Row"});
+    if (stopName == '/ccfront') stopName = "Campus Center Professor Row";
+    if (stopName == '/davissq') stopName = "Davis Square";
+    if (stopName == '/ccback') stopName = "Campus Center Talbot Ave";
+    if (stopName == '/carm') stopName = "Carmichael Hall";
+    if (stopName == '/olin') stopName = "Olin Center";
 
-    // for (i = 0; i < stop.times.length; i++) {
-    //     var h = stop.times[i].getHours();
-    //     var m = stop.times[i].getMinutes();
-    //     console.log(h + ":" + m);
+    const stop = await coll.findOne({"station_name" : stopName});
 
-    //     if (h == hour && m > min) {
-    //         index = i; 
-    //         break;
-    //     } else if (h > hour) {
-    //         index = i;
-    //         break;
-    //     }
-    // }
+    for (i = 0; i < stop.times.length; i++) {
+        var h = stop.times[i].getHours() + 4;
+        var m = stop.times[i].getMinutes();
 
-    // compute time diff of times[i] & times[i+1]
-    // make json obj of two differences
+        if (h == hour && m > min) {
+            index = i; 
+            break;
+        } else if (h > hour) {
+            index = i;
+            break;
+        }
+    }
+
+    var h1 = stop.times[index].getHours() + 4; 
+    var m1 = stop.times[index].getMinutes();
+    var h2 = stop.times[index + 1].getHours() + 4;
+    var m2 = stop.times[index + 1].getMinutes();
+
+    var diff1 = (h1 * 60 + m1) - (hour * 60 + min);
+    var diff2 = (h2 * 60 + m2) - (hour * 60 + min);
+
+    var timeObj = {"timea" : diff1, "timeb" : diff2}; 
+
+    return timeObj;
 }
 
-getTime();
+
+
+startServer();
 
 app.get('/ccfront', async function(req, res) {
-    // call function to pass in stop and returns json object of two times
-    console.log(req.path); // gets path of url
-    const timeObj = {timea : 12, timeb : 14}
+    var timeObj = await getTime(req.path);
+    console.log(timeObj);
+    res.json(timeObj);
+})
+
+app.get('/davissq', async function(req, res) {
+    var timeObj = await getTime(req.path);
+    console.log(timeObj);
+    res.json(timeObj);
+})
+
+app.get('/ccback', async function(req, res) {
+    var timeObj = await getTime(req.path);
+    console.log(timeObj);
+    res.json(timeObj);
+})
+
+app.get('/carm', async function(req, res) {
+    var timeObj = await getTime(req.path);
+    console.log(timeObj);
+    res.json(timeObj);
+})
+
+app.get('/olin', async function(req, res) {
+    var timeObj = await getTime(req.path);
+    console.log(timeObj);
     res.json(timeObj);
 })
