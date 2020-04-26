@@ -8,8 +8,8 @@ function getResults(){
     results = document.querySelector('.results');
     background = document.querySelector('.background');
 
-    results.style.height = "340px";
-    background.style.height = "1900px";
+    // results.style.height = "340px";
+    background.style.height = "1700px";
 
     // have to query for rest of stops
     if (query == "campus center front") {
@@ -33,11 +33,12 @@ function getResults(){
     } else if (query == "smfa") {
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
-    } else if (query == "campus center") {
-        stop1 = document.querySelector("#stop1");
-        stop2 = document.querySelector("#stop3");
-        results.innerHTML = stop1.outerHTML + stop2.outerHTML; 
     }
+    // } else if (query == "campus center") {
+    //     stop1 = document.querySelector("#stop1");
+    //     stop2 = document.querySelector("#stop3");
+    //     results.innerHTML = stop1.outerHTML + stop2.outerHTML; 
+    // }
 }
 
 // y height will change depending on how many fav stops there are
@@ -47,14 +48,16 @@ function displayFavs() {
     var y = document.getElementById("background");
     if (x.style.display === "none") {
         x.style.display = "block";
-        if (document.querySelector('.query').value != null)
-            y.style.height = "2100px";
-        else y.style.height = "1700px";
+        // if (document.querySelector('.query').value != null)
+        //     y.style.height = "2100px";
+        // else 
+        y.style.height = "1700px";
     } else {
         x.style.display = "none";
-        if (document.querySelector('.query').value != null)
-            y.style.height = "1900px";
-        else y.style.height = "1500px";
+        // if (document.querySelector('.query').value != null)
+        //     y.style.height = "1900px";
+        // else 
+        y.style.height = "1500px";
     }   
 }
 
