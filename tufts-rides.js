@@ -11,7 +11,7 @@ let db = null;
 let coll = null;
 
 async function startServer() {
-    client = await MongoClient.connect(MONGO_URL);
+    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true});
     db = client.db(DATABASE_NAME);
     coll = db.collection('Stations');
 
