@@ -201,7 +201,7 @@
     }
 }
 
-@media screen and (max-width: 475px) {
+/*@media screen and (max-width: 475px) {
     .time1 {
         width: 30px;
         height: 30px;
@@ -214,5 +214,5 @@
         font-size: 10px;
         margin-top: 35px;
     } 
-}
+}*/
 
