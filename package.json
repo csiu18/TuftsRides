@@ -4,19 +4,20 @@
   "description": "node app ",
   "main": "tufts-rides.js",
   "scripts": {
-  "start": "node tufts-rides.js"
-},
+    "start": "node tufts-rides.js"
+  },
   "repository": {
-  "type": "git",
-  "url": ""
-},
+    "type": "git",
+    "url": ""
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongodb": "^3.5.6"
   },
   "bugs": {
-  "url": ""
-},
+    "url": ""
+  },
   "homepage": ""
 }
