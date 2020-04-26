@@ -73,42 +73,50 @@ const time6b = document.querySelector('.time6b');
 const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
+function getTime(time) {
+    if (time >= 60)
+        return "1 hr+"
+    else 
+        return time + " min";
+}
+
 async function getData() {
     var response = await fetch('/CC_P_Row');
     var timeObj = await response.json();
-    time1a.innerHTML = timeObj.timea + ' min';
-    time1b.innerHTML = timeObj.timeb + ' min';
+    time1a.innerHTML = getTime(timeObj.timea);
+    time1b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/Davis');
     timeObj = await response.json();
-    time2a.innerHTML = timeObj.timea + ' min';
-    time2b.innerHTML = timeObj.timeb + ' min';
+    time2a.innerHTML = getTime(timeObj.timea);
+    time2b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/CC_Talbot');
     timeObj = await response.json();
-    time3a.innerHTML = timeObj.timea + ' min';
-    time3b.innerHTML = timeObj.timeb + ' min';
+    time3a.innerHTML = getTime(timeObj.timea);
+    time3b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/Carm');
     timeObj = await response.json();
-    time4a.innerHTML = timeObj.timea + ' min';
-    time4b.innerHTML = timeObj.timeb + ' min';
+    time4a.innerHTML = getTime(timeObj.timea);
+    time4b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/Olin');
     timeObj = await response.json();
-    time5a.innerHTML = timeObj.timea + ' min';
-    time5b.innerHTML = timeObj.timeb + ' min';
+    time5a.innerHTML = getTime(timeObj.timea);
+    time5b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/Aidekmann');
     timeObj = await response.json();
-    time6a.innerHTML = timeObj.timea + ' min';
-    time6b.innerHTML = timeObj.timeb + ' min';
+    time6a.innerHTML = getTime(timeObj.timea);
+    time6b.innerHTML = getTime(timeObj.timeb);
 
     response = await fetch('/SMFA');
     timeObj = await response.json();
-    time7a.innerHTML = timeObj.timea + ' min';
-    time7b.innerHTML = timeObj.timeb + ' min';
+    time7a.innerHTML = getTime(timeObj.timea);
+    time7b.innerHTML = getTime(timeObj.timeb);
 }
+
 
 getData();
 if (document.querySelector('.query').value != "") 

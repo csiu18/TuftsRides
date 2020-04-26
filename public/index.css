@@ -1,4 +1,4 @@
-.map {
+#map {
     height: 500px;
 }
 
@@ -130,7 +130,7 @@
     float: right;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #aeaeae; /*white*/
     width: 60px;
     height: 60px;
     padding: 15px; 
@@ -153,6 +153,9 @@
 
 
 @media screen and (max-width: 625px) {
+/*    #map {
+        height: 400px;
+    }*/
     .time1 {
         width: 60px;
         height: 60px;
@@ -171,12 +174,12 @@
     }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 545px) {
     .time1 {
-        width: 58px;
-        height: 58px;
-        font-size: 25px;
-        margin-top: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-top: 15px;
     }
     .time2 {
         width: 43px;
@@ -186,10 +189,15 @@
     }
 
     .stop h3, .favstop h3 {
-        font-size: 18px;
+        font-size: 17px;
     } 
+
+    .dest {
+        font-size: 17px;
+    }
 
     .sbar input {
         width: 87%;
     }
 }
+
