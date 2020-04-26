@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="bus_logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="bus_logo.png">
+
 <title>Tufts Rides</title>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
+<link rel="stylesheet" href="stylesheet.css">
 <link rel="stylesheet" href="index.css">
-<style type="text/css">
 
-</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="menu.js"></script>
 
 <script type="text/javascript">
+
     function getResults(){
         alert("hi");
         // based on search results, it will display wanted stop by calling a
@@ -36,11 +41,25 @@
 
 </head>
 <body>
-
+<!------------- HEADER & NAV MENU --------------->
 <div class="header">
     <a href="index.html"><img class="logo" src="logo.png"></a>
-    <i id="hamb" class="fa fa-bars"></i>
+    <i id="menu-ham" class="fa fa-bars"></i>
 </div>
+
+<div class="menu">
+    <div class="close-menu">
+        <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
+    </div>
+    <ul>
+        <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="index.html">Home</a></li>
+        <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="about.html">About</a></li>
+        <li><span class="menu-icon"><i class="fas fa-calendar"></i></span><a href=#>Schedule</a></li>
+        <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
+<!------------------------------------------------>
 
 <div class="map">This is where map will go.</div>
 
@@ -55,7 +74,7 @@
     </div>
 
     <div id="favstop" class="stop">
-        <h3>DAVIS SQUARE<div class="time2">10 min</div><div class="time1">5 min</div></h3>
+        <h3>DAVIS SQUARE<div class="time2"></div><div class="time1"></div></h3>
         <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
     </div>
 
@@ -63,42 +82,45 @@
 
     <div class="results">
         <div class="stop">
-            <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div id="time2" class="time1b"></div><div id="time1" class="time1a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
         </div>
         <div class="stop">
-            <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div id="time2" class="time2b"></div><div id="time1" class="time2a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
         </div>
         <div class="stop">
-            <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div id="time2" class="time3b"></div><div id="time1" class="time3a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
         </div>
         <div class="stop">
-            <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div id="time2" class="time4b"></div><div id="time1" class="time4a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
         </div>
         <div class="stop">
-            <h3>OLIN HALL<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>OLIN HALL<i id="star" class="far fa-star"></i><div id="time2" class="time5b"></div><div id="time1" class="time5a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
         </div>
         <div class="stop">
-            <h3>AIDEKMAN<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>AIDEKMAN<i id="star" class="far fa-star"></i><div id="time2" class="time6b"></div><div id="time1" class="time6a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
         </div>
         <div class="stop">
-            <h3>SMFA<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
+            <h3>SMFA<i id="star" class="far fa-star"></i><div id="time2" class="time7b"></div><div id="time1" class="time7a"></div></h3>
             <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
         </div>
     </div>
 </div>
 
 <!-- Make email open up a window when clicked on -->
+<!-------------------- FOOTER ---------------------->
 <div class="footer">
     <h1>TUFTS RIDES</h1>
-    <p><a href=# target="_blank">About</a> | <a href=# target="_blank">Shuttle Schedules</a>| info@tuftsrides.com<p> 
+    <p><a href="about.html" target="_blank">About</a> | <a href=# target="_blank">Schedule</a>| <a href="contact.html" target="_blank">Contact</a> | info@tuftsrides.com<p> 
     <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
 </div>
+
+<script type="text/javascript" src="client.js"></script>
 
 </body>
 </html>
