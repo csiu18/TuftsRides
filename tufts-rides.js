@@ -11,7 +11,7 @@ let db = null;
 let coll = null;
 
 async function startServer() {
-    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true});
+    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true}).catch((e) => { console.error(e.message) });
     
     db = client.db(DATABASE_NAME);
     coll = db.collection('Stations');
@@ -29,7 +29,7 @@ async function getTime(stopName) {
 
     console.log(stopName + " Current time: " + hour + ":" + min);
 
-    const stop = await coll.findOne({"stname" : stopName});
+    const stop = await coll.findOne({"stname" : stopName}).catch((e) => { console.error(e.message) });
     var stopObj = getDay(today, stop, stopName);
 
     for (i = 0; i < stopObj.length; i++) {
@@ -86,42 +86,42 @@ startServer();
 
 app.get('/CC_P_Row', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/Davis', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/CC_Talbot', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/Carm', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/Olin', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/SMFA', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })
 
 app.get('/Aidekmann', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop);
+    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
     res.json(timeObj);
 })

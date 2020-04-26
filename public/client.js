@@ -14,38 +14,38 @@ const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
 async function getData() {
-    var response = await fetch('/CC_P_Row');
-    var timeObj = await response.json();
+    var response = await fetch('/CC_P_Row').catch((e) => { console.error(e.message) });
+    var timeObj = await response.json().catch((e) => { console.error(e.message) });
     time1a.innerHTML = timeObj.timea + ' min';
     time1b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Davis');
-    timeObj = await response.json();
+    response = await fetch('/Davis').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time2a.innerHTML = timeObj.timea + ' min';
     time2b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/CC_Talbot');
-    timeObj = await response.json();
+    response = await fetch('/CC_Talbot').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time3a.innerHTML = timeObj.timea + ' min';
     time3b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Carm');
-    timeObj = await response.json();
+    response = await fetch('/Carm').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time4a.innerHTML = timeObj.timea + ' min';
     time4b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Olin');
-    timeObj = await response.json();
+    response = await fetch('/Olin').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time5a.innerHTML = timeObj.timea + ' min';
     time5b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Aidekmann');
-    timeObj = await response.json();
+    response = await fetch('/Aidekmann').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time6a.innerHTML = timeObj.timea + ' min';
     time6b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/SMFA');
-    timeObj = await response.json();
+    response = await fetch('/SMFA').catch((e) => { console.error(e.message) });
+    timeObj = await response.json().catch((e) => { console.error(e.message) });
     time7a.innerHTML = timeObj.timea + ' min';
     time7b.innerHTML = timeObj.timeb + ' min';
 }
