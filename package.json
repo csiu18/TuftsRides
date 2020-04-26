@@ -1,7 +1,7 @@
 {
   "name": "tufts-rides",
   "version": "1.0.0",
-  "description": "node app ",
+  "description": "tufts rides",
   "main": "tufts-rides.js",
   "scripts": {
     "start": "node tufts-rides.js"

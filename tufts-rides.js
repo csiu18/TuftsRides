@@ -82,6 +82,10 @@ function getDay(today, stop, stopName) {
     }
 }
 
+app.get('/'), function(req, res) {
+    res.send();
+}
+
 app.get('/CC_P_Row', async function(req, res) {
     var stop = (req.path).substring(1);
     var timeObj = await getTime(stop);
