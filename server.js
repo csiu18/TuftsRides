@@ -61,6 +61,7 @@ startServer();
 
 function getDay(today, stop, stopName) {
     var day = today.getDay(); 
+    day = 1; // for testing purposes 
 
     // need to account to not display on sunday
     if (stopName == "Aidekmann" || stopName == "SMFA") {
@@ -76,6 +77,8 @@ function getDay(today, stop, stopName) {
         return stop.times_fri;
     } else if (day == 6) {
         return stop.times_sat;
+    } else if (day == 0) {
+        return stops.times_sun;
     }
 }
 

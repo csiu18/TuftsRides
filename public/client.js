@@ -51,3 +51,7 @@ async function getData() {
 }
 
 getData();
+
+const interval = setInterval(function() {
+   getData();
+ }, 30000);
