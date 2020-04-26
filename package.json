@@ -1,0 +1,19 @@
+{
+  "name": "tufts-rides",
+  "version": "1.0.0",
+  "description": "node app ",
+  "main": "tufts-rides.js",
+  "scripts": {
+  "start": "node tufts-rides.js"
+},
+  "repository": {
+  "type": "git",
+  "url": ""
+},
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+},
+  "homepage": ""
+}
