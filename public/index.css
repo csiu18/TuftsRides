@@ -203,15 +203,15 @@
 
 @media screen and (max-width: 475px) {
     .time1 {
-        width: 35px;
-        height: 35px;
-        font-size: 15px;
-        margin-top: 30px;
-    }
-    .time2 {
         width: 30px;
         height: 30px;
         font-size: 12px;
+        margin-top: 30px;
+    }
+    .time2 {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
         margin-top: 35px;
     } 
 }
