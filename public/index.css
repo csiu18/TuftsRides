@@ -201,3 +201,18 @@
     }
 }
 
+@media screen and (max-width: 475px) {
+    .time1 {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+        margin-top: 20px;
+    }
+    .time2 {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+        margin-top: 25px;
+    } 
+}
+
