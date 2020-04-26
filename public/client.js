@@ -1,3 +1,41 @@
+var results = null;
+var stop = null;
+var query = null;
+
+function getResults(){
+    query = document.querySelector('.query').value;
+    query = query.toLowerCase();
+    results = document.querySelector('.results');
+    background = document.querySelector('.background');
+
+    background.style.height = "1700px";
+
+    // have to query for rest of stops
+    if (query == "campus center front") {
+        stop = document.querySelector('.stop1');
+        results.innerHTML = stop.outerHTML;
+    }
+
+}
+
+// y height will change depending on how many fav stops there are
+// +200px for each stop
+function displayFavs() {
+    var x = document.getElementById("favstop");
+    var y = document.getElementById("background");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        if (document.querySelector('.query').value != null)
+            y.style.height = "1900px";
+        else y.style.height = "1700px";
+    } else {
+        x.style.display = "none";
+        if (document.querySelector('.query').value != null)
+            y.style.height = "1700px";
+        else y.style.height = "1500px";
+    }   
+}
+
 const time1a = document.querySelector('.time1a');
 const time1b = document.querySelector('.time1b');
 const time2a = document.querySelector('.time2a');
@@ -14,44 +52,51 @@ const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
 async function getData() {
-    var response = await fetch('/CC_P_Row').catch((e) => { console.error(e.message) });
-    var timeObj = await response.json().catch((e) => { console.error(e.message) });
+    var response = await fetch('/CC_P_Row');
+    var timeObj = await response.json();
     time1a.innerHTML = timeObj.timea + ' min';
     time1b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Davis').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/Davis');
+    timeObj = await response.json();
     time2a.innerHTML = timeObj.timea + ' min';
     time2b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/CC_Talbot').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/CC_Talbot');
+    timeObj = await response.json();
     time3a.innerHTML = timeObj.timea + ' min';
     time3b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Carm').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/Carm');
+    timeObj = await response.json();
     time4a.innerHTML = timeObj.timea + ' min';
     time4b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Olin').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/Olin');
+    timeObj = await response.json();
     time5a.innerHTML = timeObj.timea + ' min';
     time5b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/Aidekmann').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/Aidekmann');
+    timeObj = await response.json();
     time6a.innerHTML = timeObj.timea + ' min';
     time6b.innerHTML = timeObj.timeb + ' min';
 
-    response = await fetch('/SMFA').catch((e) => { console.error(e.message) });
-    timeObj = await response.json().catch((e) => { console.error(e.message) });
+    response = await fetch('/SMFA');
+    timeObj = await response.json();
     time7a.innerHTML = timeObj.timea + ' min';
     time7b.innerHTML = timeObj.timeb + ' min';
 }
 
 getData();
+if (document.querySelector('.query').value != "") 
+   results.innerHTML = stop.outerHTML;
 
-// const interval = setInterval(function() {
-//    getData();
-//  }, 30000);
+const interval = setInterval(function() {
+    getData();
+
+    if (document.querySelector('.query').value != "") {
+       results.innerHTML = stop.outerHTML;
+    } 
+
+ }, 100);

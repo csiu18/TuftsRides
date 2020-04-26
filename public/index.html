@@ -33,27 +33,6 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 
-<script type="text/javascript">
-    function getResults(){
-        alert("hi");
-        // based on search results, it will display wanted stop by calling a
-        // request/pulling from database
-    }
-    
-    // y height will change depending on how many fav stops there are
-    function displayFavs() {
-        var x = document.getElementById("favstop");
-        var y = document.getElementById("background");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.height = "1700px";
-        } else {
-            x.style.display = "none";
-            y.style.height = "1500px";
-        }   
-    }
-
-</script>
 </head>
 
 <body onload="getLocation()">
@@ -379,10 +358,13 @@ function findshortest(longval, latval)
 
 <div id="background" class="background">
     <div class="sbar">
-        <input type="text" placeholder="Search for a stop...">
+        <input class="query" type="text" placeholder="Search for a stop...">
         <i id="search" class="fa fa-search" onclick="getResults()"></i>
     </div>
 
+    <div class="results"></div>
+
+    <script type="text/javascript"></script>
     <div class="favorites">
         <i id="down" class="fas fa-sort-down" onclick="displayFavs()"></i><h3>FAVORITES</h3>
     </div>
@@ -394,35 +376,33 @@ function findshortest(longval, latval)
 
     <div class="allstops"><h3>ALL STOPS</h3></div>
 
-    <div class="results">
-        <div class="stop">
-            <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div id="time2" class="time1b"></div><div id="time1" class="time1a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div id="time2" class="time2b"></div><div id="time1" class="time2a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
-        </div>
-        <div class="stop">
-            <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div id="time2" class="time3b"></div><div id="time1" class="time3a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div id="time2" class="time4b"></div><div id="time1" class="time4a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>OLIN HALL<i id="star" class="far fa-star"></i><div id="time2" class="time5b"></div><div id="time1" class="time5a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>AIDEKMAN<i id="star" class="far fa-star"></i><div id="time2" class="time6b"></div><div id="time1" class="time6a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
-        </div>
-        <div class="stop">
-            <h3>SMFA<i id="star" class="far fa-star"></i><div id="time2" class="time7b"></div><div id="time1" class="time7a"></div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
-        </div>
+    <div class="stop1">
+        <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div id="time2" class="time1b"></div><div id="time1" class="time1a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop">
+        <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div id="time2" class="time2b"></div><div id="time1" class="time2a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
+    </div>
+    <div class="stop">
+        <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div id="time2" class="time3b"></div><div id="time1" class="time3a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop">
+        <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div id="time2" class="time4b"></div><div id="time1" class="time4a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop">
+        <h3>OLIN HALL<i id="star" class="far fa-star"></i><div id="time2" class="time5b"></div><div id="time1" class="time5a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop">
+        <h3>AIDEKMAN<i id="star" class="far fa-star"></i><div id="time2" class="time6b"></div><div id="time1" class="time6a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
+    </div>
+    <div class="stop">
+        <h3>SMFA<i id="star" class="far fa-star"></i><div id="time2" class="time7b"></div><div id="time1" class="time7a"></div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
     </div>
 </div>
 

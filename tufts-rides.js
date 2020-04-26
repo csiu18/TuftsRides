@@ -11,8 +11,7 @@ let db = null;
 let coll = null;
 
 async function startServer() {
-    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true}).catch((e) => { console.error(e.message) });
-    
+    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true});
     db = client.db(DATABASE_NAME);
     coll = db.collection('Stations');
 
@@ -27,16 +26,16 @@ async function getTime(stopName) {
     var min = today.getMinutes();
     var index = 0;
 
-    console.log(stopName + " Current time: " + hour + ":" + min);
+    // console.log(stopName + " Current time: " + hour + ":" + min);
 
-    const stop = await coll.findOne({"stname" : stopName}).catch((e) => { console.error(e.message) });
+    const stop = await coll.findOne({"stname" : stopName});
     var stopObj = getDay(today, stop, stopName);
 
     for (i = 0; i < stopObj.length; i++) {
         var h = stopObj[i].getHours() + 4;
         var m = stopObj[i].getMinutes();
 
-        if (h == hour && m > min) {
+        if (h == hour && m >= min) {
             index = i; 
             break;
         } else if (h > hour) {
@@ -54,7 +53,7 @@ async function getTime(stopName) {
     var diff2 = (h2 * 60 + m2) - (hour * 60 + min);
 
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    console.log(timeObj);
+    // console.log(timeObj);
 
     return timeObj;
 }
@@ -86,42 +85,42 @@ startServer();
 
 app.get('/CC_P_Row', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/Davis', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/CC_Talbot', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/Carm', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/Olin', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/SMFA', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
 app.get('/Aidekmann', async function(req, res) {
     var stop = (req.path).substring(1);
-    var timeObj = await getTime(stop).catch((e) => { console.error(e.message) });
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
