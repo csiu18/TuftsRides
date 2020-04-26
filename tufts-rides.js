@@ -1,7 +1,6 @@
 var express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
-var PORT = process.env.PORT || 3000; 
 
 app.use(express.static('public'));
 
@@ -16,28 +15,24 @@ async function startServer() {
     db = client.db(DATABASE_NAME);
     coll = db.collection('Stations');
 
-    await app.listen(PORT);
+    await app.listen(3000);
     console.log('Listening on port 3000');
 }
 
 async function getTime(stopName) {
     var today = new Date();
-    var hour = today.getHours() - 3;
+    var hour = today.getHours() + 14;
     var min = today.getMinutes();
     var index = 0;
-    console.log("Current time: " + hour + ":" + min);
 
-    if (stopName == '/ccfront') stopName = "Campus Center Professor Row";
-    if (stopName == '/davissq') stopName = "Davis Square";
-    if (stopName == '/ccback') stopName = "Campus Center Talbot Ave";
-    if (stopName == '/carm') stopName = "Carmichael Hall";
-    if (stopName == '/olin') stopName = "Olin Center";
+    console.log(stopName + " Current time: " + hour + ":" + min);
 
-    const stop = await coll.findOne({"station_name" : stopName});
+    const stop = await coll.findOne({"stname" : stopName});
+    var stopObj = getDay(today, stop, stopName);
 
-    for (i = 0; i < stop.times.length; i++) {
-        var h = stop.times[i].getHours() + 4;
-        var m = stop.times[i].getMinutes();
+    for (i = 0; i < stopObj.length; i++) {
+        var h = stopObj[i].getHours() + 4;
+        var m = stopObj[i].getMinutes();
 
         if (h == hour && m > min) {
             index = i; 
@@ -48,49 +43,83 @@ async function getTime(stopName) {
         }
     }
 
-    var h1 = stop.times[index].getHours() + 4; 
-    var m1 = stop.times[index].getMinutes();
-    var h2 = stop.times[index + 1].getHours() + 4;
-    var m2 = stop.times[index + 1].getMinutes();
+    var h1 = stopObj[index].getHours() + 4; 
+    var m1 = stopObj[index].getMinutes();
+    var h2 = stopObj[index + 1].getHours() + 4;
+    var m2 = stopObj[index + 1].getMinutes();
 
     var diff1 = (h1 * 60 + m1) - (hour * 60 + min);
     var diff2 = (h2 * 60 + m2) - (hour * 60 + min);
 
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
+    console.log(timeObj);
 
     return timeObj;
 }
 
-
-
 startServer();
 
-app.get('/ccfront', async function(req, res) {
-    var timeObj = await getTime(req.path);
-    console.log(timeObj);
+function getDay(today, stop, stopName) {
+    var day = today.getDay(); 
+    day = 1; // for testing purposes 
+
+    // need to account to not display on sunday
+    if (stopName == "Aidekmann" || stopName == "SMFA") {
+        if (day == 6) return stop.times_sat;
+        else return stop.times_monfri;
+    }
+
+    if (day == 1 || day == 2 || day == 3) {
+        return stop.times_monwed;
+    } else if (day == 4) {
+        return stop.times_thurs;
+    } else if (day == 5) {
+        return stop.times_fri;
+    } else if (day == 6) {
+        return stop.times_sat;
+    } else if (day == 0) {
+        return stops.times_sun;
+    }
+}
+
+app.get('/CC_P_Row', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
-app.get('/davissq', async function(req, res) {
-    var timeObj = await getTime(req.path);
-    console.log(timeObj);
+app.get('/Davis', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
-app.get('/ccback', async function(req, res) {
-    var timeObj = await getTime(req.path);
-    console.log(timeObj);
+app.get('/CC_Talbot', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
-app.get('/carm', async function(req, res) {
-    var timeObj = await getTime(req.path);
-    console.log(timeObj);
+app.get('/Carm', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
 
-app.get('/olin', async function(req, res) {
-    var timeObj = await getTime(req.path);
-    console.log(timeObj);
+app.get('/Olin', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
+    res.json(timeObj);
+})
+
+app.get('/SMFA', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
+    res.json(timeObj);
+})
+
+app.get('/Aidekmann', async function(req, res) {
+    var stop = (req.path).substring(1);
+    var timeObj = await getTime(stop);
     res.json(timeObj);
 })
