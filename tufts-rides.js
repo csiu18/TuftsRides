@@ -13,7 +13,7 @@ let coll = null;
 async function startServer() {
     client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true});
     db = client.db(DATABASE_NAME);
-    coll = db.collection('Stations');
+    coll = client.db(DATABASE_NAME).collection('Stations');
 
     await app.listen(3000);
     console.log('Listening on port 3000');

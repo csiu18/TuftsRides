@@ -11,7 +11,6 @@ function getResults(){
     results.style.height = "340px";
     background.style.height = "1900px";
 
-
     // have to query for rest of stops
     if (query == "campus center front") {
         stop = document.querySelector('#stop1');
