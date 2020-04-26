@@ -182,7 +182,7 @@
         margin-top: 15px;
     }
     #time2 {
-        width: px;
+        width: 40px;
         height: 40px;
         font-size: 20px;
         margin-top: 22px;
@@ -200,7 +200,7 @@
     }
 
     .sbar input {
-        width: 87%;
+        width: 75%;
     }
 }
 
