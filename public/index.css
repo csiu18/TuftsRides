@@ -184,7 +184,7 @@
     #time2 {
         width: 40px;
         height: 40px;
-        font-size: 20px;
+        font-size: 18px;
         margin-top: 22px;
     }
 
@@ -200,7 +200,7 @@
     }
 
     .sbar input {
-        width: 75%;
+        width: 80%;
     }
 }
 
