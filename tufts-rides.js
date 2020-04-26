@@ -11,17 +11,20 @@ let db = null;
 let coll = null;
 
 async function startServer() {
-    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true});
+    client = await MongoClient.connect(MONGO_URL, {useUnifiedTopology: true}, function(err, db) {
+    if(err) { console.log("Connection err: " + err); return; }});
+    
     db = client.db(DATABASE_NAME);
     coll = db.collection('Stations');
 
     await app.listen(3000);
     console.log('Listening on port 3000');
+
 }
 
 async function getTime(stopName) {
     var today = new Date();
-    var hour = today.getHours() + 14;
+    var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
 
@@ -57,8 +60,6 @@ async function getTime(stopName) {
     return timeObj;
 }
 
-startServer();
-
 function getDay(today, stop, stopName) {
     var day = today.getDay(); 
     day = 1; // for testing purposes 
@@ -82,9 +83,7 @@ function getDay(today, stop, stopName) {
     }
 }
 
-app.get('/'), function(req, res) {
-    res.send();
-}
+startServer();
 
 app.get('/CC_P_Row', async function(req, res) {
     var stop = (req.path).substring(1);
