@@ -8,14 +8,37 @@ function getResults(){
     results = document.querySelector('.results');
     background = document.querySelector('.background');
 
-    background.style.height = "1700px";
+    results.style.height = "340px";
+    background.style.height = "1900px";
+
 
     // have to query for rest of stops
     if (query == "campus center front") {
-        stop = document.querySelector('.stop1');
+        stop = document.querySelector('#stop1');
         results.innerHTML = stop.outerHTML;
+    } else if (query.search("davis") > -1) {
+        stop = document.querySelector('#stop2');
+        results.innerHTML = stop.outerHTML;
+    } else if (query == "campus center back") {
+        stop = document.querySelector('#stop3');
+        results.innerHTML = stop.outerHTML;
+    } else if (query.search("carm") > -1) {
+        stop = document.querySelector('#stop4');
+        results.innerHTML = stop.outerHTML;
+    } else if (query.search("olin") > -1) {
+        stop = document.querySelector('#stop5');
+        results.innerHTML = stop.outerHTML;
+    } else if (query.search("aidek") > -1) {
+        stop = document.querySelector('#stop6');
+        results.innerHTML = stop.outerHTML;
+    } else if (query == "smfa") {
+        stop = document.querySelector('#stop7');
+        results.innerHTML = stop.outerHTML;
+    } else if (query == "campus center") {
+        stop1 = document.querySelector("#stop1");
+        stop2 = document.querySelector("#stop3");
+        results.innerHTML = stop1.outerHTML + stop2.outerHTML; 
     }
-
 }
 
 // y height will change depending on how many fav stops there are
@@ -26,12 +49,12 @@ function displayFavs() {
     if (x.style.display === "none") {
         x.style.display = "block";
         if (document.querySelector('.query').value != null)
-            y.style.height = "1900px";
+            y.style.height = "2100px";
         else y.style.height = "1700px";
     } else {
         x.style.display = "none";
         if (document.querySelector('.query').value != null)
-            y.style.height = "1700px";
+            y.style.height = "1900px";
         else y.style.height = "1500px";
     }   
 }
