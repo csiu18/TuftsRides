@@ -23,15 +23,15 @@ async function startServer() {
 
 async function getTime(stopName) {
     var today = new Date();
-    var day = today.getDate();
+    var day = today.getDay();
     var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
 
     // console.log(stopName + " Current time: " + hour + ":" + min);
 
-    const stop = await coll.findOne({"stname" : stopName});
-    var stopObj = getDay(day);
+    var stop = await coll.findOne({"stname" : stopName});
+    var stopObj = getDay(day, stop);
 
     for (i = 0; i < stopObj.length; i++) {
         var h = stopObj[i].getHours() + 4;
@@ -58,21 +58,21 @@ async function getTime(stopName) {
     }
     
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    console.log(timeObj);
+    // console.log(timeObj);
 
     return timeObj;
 }
 
-function getDay(day) {
+function getDay(day, stop) {
     // day = 1; // for testing purposes 
 
     if (day == 1) return stop.times_mon;
-    if (day == 2) return stops.times_tues;
+    if (day == 2) return stop.times_tues;
     if (day == 3) return stop.times_wed;
     if (day == 4) return stop.times_thurs;
     if (day == 5) return stop.times_fri;
     if (day == 6) return stop.times_sat;
-    if (day == 0) return stops.times_sun;
+    if (day == 0) return stop.times_sun;
 }
 
 startServer();
