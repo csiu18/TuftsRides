@@ -1,9 +1,11 @@
-var express = require('express');
+const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
+const compression = require('compression');
 const app = express();
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
+app.use(compression());
 
 const DATABASE_NAME = 'Shuttle';
 const MONGO_URL = "mongodb+srv://ramaty01:mypassword@cluster0-hi4fv.mongodb.net/test?retryWrites=true&w=majority";
