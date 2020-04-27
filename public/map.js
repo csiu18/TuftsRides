@@ -1,8 +1,6 @@
 // Access Token
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5rb2FuanUiLCJhIjoiY2s5NmQwYXczMHVkdDNob201MmljZnk3OSJ9.X6W7DiJbZEsLh8RRO10T4w';
 
-//-------------------- Set up the Map -----------------------//
-
 // Initialize, and set position and orientation
 var map = new mapboxgl.Map({
     container: 'map',
@@ -45,9 +43,7 @@ var Olin = new mapboxgl.Marker()
   .setLngLat([-71.120896, 42.408284]) 
   .addTo(map); 
 
-
 // Add stop names as mouse hover pop ups
-
   map.on('load', function() {
   map.addSource('places', {
   'type': 'geojson',

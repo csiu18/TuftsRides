@@ -23,6 +23,7 @@ async function startServer() {
 
 async function getTime(stopName) {
     var today = new Date();
+    var day = today.getDate();
     var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
@@ -30,7 +31,7 @@ async function getTime(stopName) {
     // console.log(stopName + " Current time: " + hour + ":" + min);
 
     const stop = await coll.findOne({"stname" : stopName});
-    var stopObj = getDay(today, stop, stopName);
+    var stopObj = getDay(day);
 
     for (i = 0; i < stopObj.length; i++) {
         var h = stopObj[i].getHours() + 4;
@@ -45,41 +46,33 @@ async function getTime(stopName) {
         }
     }
 
-    var h1 = stopObj[index].getHours() + 4; 
-    var m1 = stopObj[index].getMinutes();
-    var h2 = stopObj[index + 1].getHours() + 4;
-    var m2 = stopObj[index + 1].getMinutes();
+    h1 = stopObj[index].getHours() + 4; 
+    m1 = stopObj[index].getMinutes();
+    diff1 = (h1 * 60 + m1) - (hour * 60 + min);
+    diff2 = ". . .";
 
-    var diff1 = (h1 * 60 + m1) - (hour * 60 + min);
-    var diff2 = (h2 * 60 + m2) - (hour * 60 + min);
-
+    if (index != stopObj.length - 1) {
+       h2 = stopObj[index + 1].getHours() + 4;
+       m2 = stopObj[index + 1].getMinutes();
+       diff2 = (h2 * 60 + m2) - (hour * 60 + min);
+    }
+    
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    // console.log(timeObj);
+    console.log(timeObj);
 
     return timeObj;
 }
 
-function getDay(today, stop, stopName) {
-    var day = today.getDay(); 
-    day = 1; // for testing purposes 
+function getDay(day) {
+    // day = 1; // for testing purposes 
 
-    // need to account to not display on sunday
-    if (stopName == "Aidekmann" || stopName == "SMFA") {
-        if (day == 6) return stop.times_sat;
-        else return stop.times_monfri;
-    }
-
-    if (day == 1 || day == 2 || day == 3) {
-        return stop.times_monwed;
-    } else if (day == 4) {
-        return stop.times_thurs;
-    } else if (day == 5) {
-        return stop.times_fri;
-    } else if (day == 6) {
-        return stop.times_sat;
-    } else if (day == 0) {
-        return stops.times_sun;
-    }
+    if (day == 1) return stop.times_mon;
+    if (day == 2) return stops.times_tues;
+    if (day == 3) return stop.times_wed;
+    if (day == 4) return stop.times_thurs;
+    if (day == 5) return stop.times_fri;
+    if (day == 6) return stop.times_sat;
+    if (day == 0) return stops.times_sun;
 }
 
 startServer();
