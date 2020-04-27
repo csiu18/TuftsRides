@@ -3,24 +3,34 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="bus_logo.png">
-
 <title>Tufts Rides</title>
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-<link rel="stylesheet" href="stylesheet.css">
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
-        crossorigin="anonymous">
-</script>
-
+<link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="../menu.js"></script>
 	
 	<div class="header">
-    	<a href="index.html"><img class="logo" src="logo.png"></a>
-    	<i id="hamb" class="fa fa-bars"></i>
-	</div>
+        <a href="index.html"><img class="logo" src="../logo.png" alt="logo"></a>
+        <i id="menu-ham" class="fa fa-bars"></i>
+    </div>
+
+    <div class="menu">
+        <div class="close-menu">
+            <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
+        </div>
+
+        <ul>
+            <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="../index.html">Home</a></li>
+            <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="../about.html">About</a></li>
+            <li><span class="menu-icon"><i class="fas fa-calendar"></i></span><a href="schedules.html">Schedule</a></li>
+            <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="../contact.html">Contact</a></li>
+        </ul>
+    </div>
 
 	<div class="map" style="padding: 100px">
 		<h1>Schedule</h1>
@@ -38,7 +48,7 @@
 
 	<div class="footer">
         <h1>TUFTS RIDES</h1>
-        <p><a href="about.html">About</a> | <a href="schedules.html">Schedule</a>| <a href="contact.html">Contact</a> | info@tuftsrides.com<p> 
+        <p><a href="../about.html">About</a> | <a href="schedules.html">Schedule</a>| <a href="../contact.html">Contact</a> | info@tuftsrides.com<p> 
         <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
     </div>
 
