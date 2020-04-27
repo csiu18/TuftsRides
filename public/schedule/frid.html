@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="bus_logo.png">
 
+<title>Tufts Rides</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="stylesheet.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+</script>
+	
+	<script language="javascript">
+		
+	</script>
+
+<style type="text/css">
+
+.tableStyle, th{
+	
+	
+  border-collapse:collapse;
+  border:1px solid black; 
+	padding: 80px;
+	font-size: 20px;
+	text-align: left;
+	margin: auto;
+	width: 570px;
+	table-layout: fixed;
+	
+}
+td {
+	padding: 10px
+}
+tr:first-child {
+	background-color: #537eb1;
+		
+}
+	
+
+
+</style>
+
+
+</head>
+<body>
+
+	<div class="header">
+    	<a href="index.html"><img class="logo" src="logo.png"></a>
+    	<i id="hamb" class="fa fa-bars"></i>
+	</div>
+
+	
+	
+	
+	<div class="map" style="padding: 100px; margin-left:auto; margin-right:auto;">
+		<table class = "tableStyle" id = "tablesched" border = "1">
+		</table>
+		<script type="text/javascript">
+			
+			var i , j;
+			var a = document.getElementById("tablesched").insertRow(0)
+			a.insertCell(0).innerHTML = "Campus Center: P-Row"
+			a.insertCell(1).innerHTML = "Davis Square"
+			a.insertCell(2).innerHTML = "Campus Center: Talbot"
+			a.insertCell(3).innerHTML = "Carmichael"
+			a.insertCell(4).innerHTML = "Olin"
+			
+			var liststring = JSON.stringify(times);
+			var jsonlist = JSON.parse(liststring);
+			
+			for (r=1; r<28; r++) {
+				var x = document.getElementById("tablesched").insertRow(r)
+           		
+               	x.insertCell(0).innerHTML = jsonlist.mon_wed.CCfront[r-1]
+				x.insertCell(1).innerHTML = jsonlist.mon_wed.Davis[r-1]
+				x.insertCell(2).innerHTML = jsonlist.mon_wed.CCback[r-1]
+				x.insertCell(3).innerHTML = jsonlist.mon_wed.Carmichael[r-1]
+				x.insertCell(4).innerHTML = jsonlist.mon_wed.Olin[r-1]
+      
+       		}
+		</script>
+		
+	</div>
+
+<div class="footer">
+        <h1>TUFTS RIDES</h1>
+        <p><a href="about.html">About</a> | <a href="schedules.html">Schedule</a>| <a href="contact.html">Contact</a> | info@tuftsrides.com<p> 
+        <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
+    </div>
+
+</body>
+</html>
