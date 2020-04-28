@@ -66,7 +66,6 @@ const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
 function getTime(time) {
-    console.log(time);
     if (time >= 60) return "1 hr+";
     else return time + " min";
 }
@@ -116,4 +115,4 @@ const interval = setInterval(function() {
     getData();
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
- }, 1000);
+ }, 5000);
