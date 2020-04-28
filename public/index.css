@@ -1,11 +1,5 @@
 #map {height: 500px;}
-.marker {
-    display: block;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 0;
-}
+.marker {display: block; border: none; border-radius: 50%; cursor: pointer; padding: 0;}
 .mapboxgl-popup {max-width: 400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}
 .background {background: #3e6491; height: 1500px;}
 .sbar {background: #537eb1; height: 80px;}
@@ -21,23 +15,12 @@
 #search {color: white; font-size: 25px; margin-left: 5px;}
 #search:hover {cursor: pointer;}
 #down {float: left; font-size: 35px; margin-right: 10px; cursor: pointer;}
-.favorites {
-    height: 50px;
-    width: 97.5%;
-    background: #537eb1;
-    margin: 20px 0 20px 0;
-    padding-left: 2.5%;
-}
+.favorites {height: 50px; width: 97.5%; background: #537eb1; margin: 20px 0 20px 0; padding-left: 2.5%;}
 .favorites h3 {padding: 15px 0; font-size: 22px;}
 #star {margin-left: 7px;}
 #star:hover {color: white; cursor: pointer;}
 #favstop {display: none;}
-.allstops {
-    height: 50px;
-    width: 97.5%;
-    background: #537eb1;
-    padding-left: 2.5%;
-}
+.allstops {height: 50px; width: 97.5%; background: #537eb1; padding-left: 2.5%;}
 .allstops h3 {padding-top: 12px;font-size: 22px;}
 .stop {
     margin: 20px 2%;
@@ -49,7 +32,6 @@
     padding-right: 15px;
 }
 .stop h3 {font-size: 25px;margin-bottom: 0;}
-.stop h3:hover {color: #1c1c1e; cursor: pointer;}
 #time1 {
     color: white;
     font-size: 30px;
@@ -69,7 +51,7 @@
     float: right;
     text-align: center;
     border-radius: 50%;
-    border: 2px solid #aeaeae; /*white*/
+    border: 2px solid #aeaeae;
     width: 60px;
     height: 60px;
     padding: 15px; 
