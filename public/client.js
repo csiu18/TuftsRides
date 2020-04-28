@@ -115,4 +115,4 @@ const interval = setInterval(function() {
     getData();
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
- }, 5000);
+ }, 1000);

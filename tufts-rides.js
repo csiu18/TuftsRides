@@ -28,7 +28,7 @@ async function getTime(stopName) {
     var min = today.getMinutes();
     var index = 0;
 
-    console.log(stopName + " Current time: " + hour + ":" + min);
+    // console.log(stopName + " Current time: " + hour + ":" + min);
 
     var stop = await coll.findOne({"stname" : stopName});
     var stopObj = getDay(day, stop);
@@ -58,7 +58,7 @@ async function getTime(stopName) {
     }
     
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    console.log(timeObj);
+    // console.log(timeObj);
 
     return timeObj;
 }
