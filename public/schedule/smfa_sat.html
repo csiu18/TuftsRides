@@ -96,7 +96,7 @@ tr:first-child {
 	
 	
 	<div class="map" style="padding: auto; margin-left:auto; margin-right:auto;">
-		<h1 class = "tableHeader">SMFA Saturday Schedule </h1>
+		<h1 class = "tableHeader">SMFA Monday - Friday Schedule </h1>
 		<table class = "tableStyle" id = "tablesched" border = "1">
 		</table>
 		<script type="text/javascript">
@@ -109,11 +109,11 @@ tr:first-child {
 			var liststring = JSON.stringify(times);
 			var jsonlist = JSON.parse(liststring);
 			
-			for (r=1; r<4; r++) {
+			for (r=1; r<28; r++) {
 				var x = document.getElementById("tablesched").insertRow(r)
            		
                	x.insertCell(0).innerHTML = jsonlist.weekday.Aidekman[r-1]
-				  x.insertCell(1).innerHTML = jsonlist.weekday.SMFA[r-1]
+				x.insertCell(1).innerHTML = jsonlist.weekday.SMFA[r-1]
 				
        		}
 		</script>
