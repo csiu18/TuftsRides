@@ -1,11 +1,9 @@
 const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
-const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
-app.use(compression());
 
 const DATABASE_NAME = 'Shuttle';
 const MONGO_URL = "mongodb+srv://ramaty01:mypassword@cluster0-hi4fv.mongodb.net/test?retryWrites=true&w=majority";
@@ -19,7 +17,7 @@ async function startServer() {
     coll = client.db(DATABASE_NAME).collection('Stations');
 
     await app.listen(PORT);
-    console.log('Listening on port' + PORT);
+    console.log('Listening on port ' + PORT);
 
 }
 
@@ -29,7 +27,7 @@ async function getTime(stopName) {
     var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
-    
+
     // console.log(stopName + " Current time: " + hour + ":" + min);
 
     var stop = await coll.findOne({"stname" : stopName});
@@ -60,7 +58,7 @@ async function getTime(stopName) {
     }
     
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    console.log(timeObj);
+    // console.log(timeObj);
 
     return timeObj;
 }
