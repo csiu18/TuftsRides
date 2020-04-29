@@ -1,0 +1,24 @@
+{
+  "name": "tufts-rides",
+  "version": "1.0.0",
+  "description": "tufts rides",
+  "main": "tufts-rides.js",
+  "scripts": {
+    "start": "node tufts-rides.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.1.6"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

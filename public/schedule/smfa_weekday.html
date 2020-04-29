@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../bus_logo.png">
+
+<title>Tufts Rides</title>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+<link rel="stylesheet" href="../stylesheet.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+</script>
+	
+	<script language="javascript">
+		var times = {
+			"weekday":
+				{
+					"Aidekman": [
+						" ",
+						"7:45 AM",
+						"8:00 AM",
+						"8:30 AM",
+						"9:00 AM",
+						"9:30 AM",
+						"10:00 AM",
+						"11:00 AM",
+						"10:30 AM",
+						"11:30 AM",
+						"1:00 PM",
+						"1:30 PM",
+						"3:00 PM",
+						" ",
+						" ",
+						"5:30 PM",
+						"6:00 PM",
+						"6:30 PM",
+						"7:30 PM",
+						"8:00 PM",
+						"8:30 PM",
+						"9:30 PM",
+						"10:00 PM",
+						"12:00 AM"
+						
+					],
+					"SMFA": [
+						"8:17 AM",
+						"8:30 AM",
+						"9:00 AM",
+						"9:30 AM",
+						"10:00 AM",
+						"10:30 AM",
+						"11:00 AM",
+						"12:00 PM",
+						" ",
+						"12:15 PM",
+						" ",
+						"2:15 PM",
+						"3:45 PM",
+						"5:15 PM",
+						"5:30 PM",
+						"6:30 PM",
+						"7:00 PM",
+						"7:30 PM",
+						"8:30 PM",
+						"9:00 PM",
+						"9:45 PM",
+						"10:30 PM",
+						"11:00 PM",
+						"1:00 AM",
+						
+					], 
+					
+				}
+			}
+	</script>
+
+<style type="text/css">
+
+.tableStyle, th{
+	
+	
+    border-collapse:collapse;
+    border:1px solid black; 
+	padding: 80px;
+	font-size: 20px;
+	text-align: left;
+	margin: auto;
+	width: 450px;
+	table-layout: fixed;
+	
+}
+td {
+	padding: 10px
+}
+tr:first-child {
+	background-color: #537eb1;
+		
+}
+
+@media (max-width: 970px) {
+	.tableHeader {
+		font-size: 20px;
+	}
+	.tableStyle {
+		overflow-x: auto;
+	}
+}
+
+
+</style>
+
+
+</head>
+<body>
+    <script type="text/javascript" src="../menu.js"></script>
+    <div class="header">
+        <a href="../index.html"><img class="logo" src="../logo.png" alt="logo"></a>
+        <i id="menu-ham" class="fa fa-bars"></i>
+    </div>
+
+    <div class="menu">
+        <div class="close-menu">
+            <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
+        </div>
+
+        <ul>
+            <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="../index.html">Home</a></li>
+            <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="../about.html">About</a></li>
+            <li><span class="menu-icon"><i class="fas fa-calendar"></i></span><a href="schedules.html">Schedule</a></li>
+            <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="../contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+	
+	
+	
+	<div class="map" style="padding: auto; margin-left:auto; margin-right:auto;">
+		<h1 class = "tableHeader">SMFA Monday - Friday Schedule </h1>
+		<table class = "tableStyle" id = "tablesched" border = "1">
+		</table>
+		<script type="text/javascript">
+			
+			var i , j;
+			var a = document.getElementById("tablesched").insertRow(0)
+			a.insertCell(0).innerHTML = "Leaves Aidekman"
+			a.insertCell(1).innerHTML = "Leaves SMFA"
+			
+			var liststring = JSON.stringify(times);
+			var jsonlist = JSON.parse(liststring);
+			
+			for (r=1; r<25; r++) {
+				var x = document.getElementById("tablesched").insertRow(r)
+           		
+               	x.insertCell(0).innerHTML = jsonlist.weekday.Aidekman[r-1]
+				x.insertCell(1).innerHTML = jsonlist.weekday.SMFA[r-1]
+				
+       		}
+		</script>
+		
+	</div>
+	<p></p>
+
+<div class="footer">
+        <h1>TUFTS RIDES</h1>
+        <p><a href="../about.html">About</a> | <a href="schedules.html">Schedule</a>| <a href="../contact.html">Contact</a> | info@tuftsrides.com<p> 
+        <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
+    </div>
+
+</body>
+</html>

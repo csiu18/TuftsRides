@@ -3,50 +3,27 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="bus_logo.png">
-
 <title>Tufts Rides</title>
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 <link rel="stylesheet" href="stylesheet.css">
 <link rel="stylesheet" href="index.css">
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css' rel='stylesheet' />
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+</head>
 
+<body onload="getLocation()">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous">
 </script>
 <script type="text/javascript" src="menu.js"></script>
 
-<script type="text/javascript">
-
-    function getResults(){
-        alert("hi");
-        // based on search results, it will display wanted stop by calling a
-        // request/pulling from database
-    }
-    
-    // y height will change depending on how many fav stops there are
-    function displayFavs() {
-        var x = document.getElementById("favstop");
-        var y = document.getElementById("background");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.height = "1700px";
-        } else {
-            x.style.display = "none";
-            y.style.height = "1500px";
-        }   
-    }
-
-</script>
-
-</head>
-<body>
 <!------------- HEADER & NAV MENU --------------->
 <div class="header">
-    <a href="index.html"><img class="logo" src="logo.png"></a>
+    <a href="index.html"><img class="logo" src="logo.png" alt="logo"></a>
     <i id="menu-ham" class="fa fa-bars"></i>
 </div>
-
 <div class="menu">
     <div class="close-menu">
         <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
@@ -54,69 +31,93 @@
     <ul>
         <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="index.html">Home</a></li>
         <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="about.html">About</a></li>
-        <li><span class="menu-icon"><i class="fas fa-calendar"></i></span><a href=#>Schedule</a></li>
+        <li onclick="showMenu()"><span class="menu-icon"><i class="fas fa-calendar"></i></span><a>Schedule</a></li>
+        <span class="sub-menu">
+            <a href="schedule/mon_wed.html"><li>Davis Square Mon-Wed</li></a>
+            <a href="schedule/thurs.html"><li>Davis Square Thurs</li></a>
+            <a href="schedule/fri.html"><li>Davis Square Fri</li></a>
+            <a href="schedule/sat.html"><li>Davis Square Sat</li></a>
+            <a href="schedule/sun.html"><li>Davis Square Sun</li></a>
+            <a href=#><li>SMFA Mon-Fri</li></a>
+            <a href=#><li>SMFA Sat</li></a>
+        </span>
         <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="contact.html">Contact</a></li>
     </ul>
 </div>
 
-<!------------------------------------------------>
+<!----------------- MAP ------------------->
 
-<div class="map">This is where map will go.</div>
+<!----- Map ----->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js'></script>
+
+<!-- Direction -->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+
+<!-- Distance -->
+<script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
+
+<!-- LeafLet -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+<div id='map'></div>
+
+<script src='map.js'></script>
+
+<!---------------END OF MAP----------------->
 
 <div id="background" class="background">
     <div class="sbar">
-        <input type="text" placeholder="Search for a stop...">
+        <input class="query" type="text" placeholder="Search for a stop...">
         <i id="search" class="fa fa-search" onclick="getResults()"></i>
     </div>
+
+    <div class="results"></div>
 
     <div class="favorites">
         <i id="down" class="fas fa-sort-down" onclick="displayFavs()"></i><h3>FAVORITES</h3>
     </div>
 
     <div id="favstop" class="stop">
-        <h3>DAVIS SQUARE<div class="time2">10 min</div><div class="time1">5 min</div></h3>
+        <h3>DAVIS SQUARE<div class="time2"></div><div class="time1"></div></h3>
         <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
     </div>
 
     <div class="allstops"><h3>ALL STOPS</h3></div>
 
-    <div class="results">
-        <div class="stop">
-            <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div class="time1b">10 min</div><div class="time1a">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
-        </div>
-        <div class="stop">
-            <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>OLIN HALL<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
-        </div>
-        <div class="stop">
-            <h3>AIDEKMAN<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
-        </div>
-        <div class="stop">
-            <h3>SMFA<i id="star" class="far fa-star"></i><div class="time2">10 min</div><div class="time1">5 min</div></h3>
-            <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
-        </div>
+    <div class="stop" id="stop1">
+        <h3>CAMPUS CENTER FRONT<i id="star" class="far fa-star"></i><div id="time2" class="time1b">. . .</div><div id="time1" class="time1a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop" id="stop2">
+        <h3>DAVIS SQUARE<i id="star" class="far fa-star"></i><div id="time2" class="time2b">. . .</div><div id="time1" class="time2a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Campus</div>
+    </div>
+    <div class="stop" id="stop3">
+        <h3>CAMPUS CENTER BACK<i id="star" class="far fa-star"></i><div id="time2" class="time3b">. . .</div><div id="time1" class="time3a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop" id="stop4">
+        <h3>CARMICHAEL HALL<i id="star" class="far fa-star"></i><div id="time2" class="time4b">. . .</div><div id="time1" class="time4a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop" id="stop5">
+        <h3>OLIN HALL<i id="star" class="far fa-star"></i><div id="time2" class="time5b">. . .</div><div id="time1" class="time5a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Davis Square</div>
+    </div>
+    <div class="stop" id="stop6">
+        <h3>AIDEKMANN<i id="star" class="far fa-star"></i><div id="time2" class="time6b">. . .</div><div id="time1" class="time6a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
+    </div>
+    <div class="stop" id="stop7">
+        <h3>SMFA<i id="star" class="far fa-star"></i><div id="time2" class="time7b">. . .</div><div id="time1" class="time7a">. . .</div></h3>
+        <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
     </div>
 </div>
 
-<!-- Make email open up a window when clicked on -->
 <!-------------------- FOOTER ---------------------->
 <div class="footer">
     <h1>TUFTS RIDES</h1>
-    <p><a href="about.html" target="_blank">About</a> | <a href=# target="_blank">Schedule</a>| <a href="contact.html" target="_blank">Contact</a> | info@tuftsrides.com<p> 
+    <p><a href="about.html">About</a> | <a href="schedule/schedules.html">Schedule</a>| <a href="contact.html">Contact</a> | info@tuftsrides.com<p> 
     <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
 </div>
 
