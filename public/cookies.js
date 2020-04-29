@@ -1,5 +1,3 @@
-
-
 function initializeCookies()
 {
 	localStorage.setItem("CAMPUS CENTER FRONT", "FALSE");
@@ -8,12 +6,13 @@ function initializeCookies()
 	localStorage.setItem("CARMICHAEL HALL", "FALSE");
 	localStorage.setItem("OLIN HALL", "FALSE");
 	localStorage.setItem("AIDEKMANN", "FALSE");
+    localStorage.setItem("SMFA", "FALSE");
 
 }
 
 function setCookie(name, value)
 {
-	console.log("set cookie" + name + "to" + value)
+	// console.log("set cookie" + name + "to" + value)
 	localStorage.setItem(name, value);
 
 }
@@ -43,10 +42,10 @@ function getFavArray()
 {
 	var favs = [];
 	var nameArray = ["CAMPUS CENTER FRONT", "DAVIS SQUARE", "CAMPUS CENTER BACK",
-					"CARMICHAEL HALL", "OLIN HALL", "AIDEKMANN"];
+					"CARMICHAEL HALL", "OLIN HALL", "AIDEKMANN", "SMFA"];
 	for(var i = 0; i < 7; i++) {
 		if(getCookie(nameArray[i]) == "TRUE") {
-			console.log(nameArray[i])
+			//console.log(nameArray[i])
 			favs.push(nameArray[i]);
 		}
 	}

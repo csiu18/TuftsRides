@@ -14,7 +14,9 @@
 
 <body onload="getLocation()">
 
-<script src='cookies.js'></script>
+<!-- <div id="message"></div>
+ -->
+ <script src='cookies.js'></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous">
@@ -66,6 +68,16 @@
 <script src='map.js'></script>
 
 <!---------------END OF MAP----------------->
+<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>    -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script> -->
+<!-- <div id="message"></div>
+ -->
+ <!-- <script src='cookies.js'></script> -->
+
+
+
+
+
 
 <div id="background" class="background">
     <div class="sbar">
@@ -79,7 +91,28 @@
         <i id="down" class="fas fa-sort-down" onclick="displayFavs()"></i><h3>FAVORITES</h3>
     </div>
 
+
     <div id="FAVE"></div>
+
+ <!--- fav algorithm -->
+    <script>
+    function showF(){
+        var faveStops = getFavArray();
+        var str = "";
+        console.log("fav stop here " + (faveStops[0]));
+        for(var i = 0; i < faveStops.length; i++){
+            str += "<div class ='stop' id='stop" + (i+1) + "'>";
+            str +=   "<h3>" + faveStops[i] + "<div class='time2'></div><div class='time1'></div></h3>" + 
+            "<div class='dest'><i id='arrow' class='fa fa-arrow-right'></i>Campus</div> </div>";
+        }
+
+        document.getElementById("FAVE").innerHTML = str;
+        
+    }
+         
+    </script>
+
+ <!---end--->   
 
     <div class="allstops"><h3>ALL STOPS</h3></div>
 
@@ -108,11 +141,13 @@
         <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>SMFA</div>
     </div>
     <div class="stop" id="stop7">
-        <h3>SMFA<i id="star" class="far fa-star" onclick = "cookieLogic('SMFA')"></i><div id="time2" class="time7b">. . .</div><div id="time1" class="time7a">. . .</div></h3>
+        <h3>SMFA<i id="star" class="far fa-star"></i><div id="time2" class="time7b">. . .</div><div id="time1" class="time7a">. . .</div></h3>
         <div class="dest"><i id="arrow" class="fa fa-arrow-right"></i>Aidekman</div>
     </div>
 </div>
-</div>
+
+    
+    </div>
 
 <!-------------------- FOOTER ---------------------->
 <div class="footer">

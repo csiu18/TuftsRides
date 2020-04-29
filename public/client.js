@@ -7,14 +7,10 @@ function getResults(){
     results2 = document.querySelector('.results2');
     background = document.querySelector('.background');
 
-    console.log(query);
-
-    // results.style.height = "340px";
     background.style.height = "1700px";
     results.style.display = "block";
     results2.style.display = "none";
 
-    // have to query for rest of stops
     if (query == "campus center front") {
         stop = document.querySelector('#stop1');
         results.innerHTML = stop.outerHTML;
@@ -46,18 +42,65 @@ function getResults(){
     }
 }
 
-// y height will change depending on how many fav stops there are
-// +200px for each stop
-function displayFavs() {
-    var x = document.getElementById("favstop");
-    var y = document.getElementById("background");
+
+function displayFavs() { 
+    var x = document.querySelector("#FAVE");
+    var y = document.querySelector('.background');
+    var faveStops = getFavArray();
+    var height = faveStops.length * 170 + 1540;
+    var newHeight = "" + height + "px"; 
+
     if (x.style.display === "none") {
         x.style.display = "block";
-        y.style.height = "1700px";
+        y.style.height = newHeight;
+
     } else {
         x.style.display = "none";
         y.style.height = "1500px";
-    }   
+    }
+}
+
+function showF(){
+    var faveStops = getFavArray();
+    var str = "";
+
+    var x = document.querySelector("#FAVE");
+    var y = document.querySelector('.background');
+    var height = faveStops.length * 170 + 1540;
+    var newHeight = "" + height + "px";
+    y.style.height = newHeight;
+
+    if (x.style.display == "none") {
+        y.style.height = "1500px";
+    }
+
+    // console.log("fav stop here " + (faveStops[0]));
+    for(var i = 0; i < faveStops.length; i++){
+        if (faveStops[i] == "CAMPUS CENTER FRONT") {
+           stop = document.querySelector('#stop1'); 
+           str += stop.outerHTML;
+        } else if (faveStops[i] == "DAVIS SQUARE") {
+            stop = document.querySelector('#stop2');
+            str += stop.outerHTML;
+        } else if (faveStops[i] == "CAMPUS CENTER BACK") {
+            stop = document.querySelector('#stop3');
+            str += stop.outerHTML;
+        } else if (faveStops[i] == "CARMICHAEL HALL") {
+            stop = document.querySelector('#stop4');
+            str += stop.outerHTML;
+        } else if (faveStops[i] == "OLIN HALL") {
+            stop = document.querySelector('#stop5');
+            str += stop.outerHTML;
+        }
+        else if (faveStops[i] == "AIDEKMANN") {
+            stop = document.querySelector('#stop6');
+            str += stop.outerHTML;
+        } else if (faveStops[i] == "SMFA") {
+            stop = document.querySelector('#stop7');
+            str += stop.outerHTML;
+        }
+    }
+    document.getElementById("FAVE").innerHTML = str;       
 }
 
 const time1a = document.querySelector('.time1a');
@@ -121,9 +164,11 @@ async function getData() {
 getData();
 if (document.querySelector('.query').value != "") 
    results.innerHTML = stop.outerHTML;
+showF();
 
 const interval = setInterval(function() {
     getData();
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
- }, 1000);
+    showF();
+ }, 500);
