@@ -3,268 +3,252 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="../bus_logo.png">
-
 <title>Tufts Rides</title>
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 <link rel="stylesheet" href="../stylesheet.css">
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
-        crossorigin="anonymous">
-</script>
-	
-	<script language="javascript">
-		var times = {
-			"mon_wed":
-				{
-					"CCfront": [
-						"11:00 AM",
-						"11:28 AM",
-						"11:56 AM",
-						"12:24 AM",
-						"12:52 AM",
-						"1:35 PM",
-						"2:03 PM",
-						"2:31 PM",
-						"2:59 PM",
-						"3:27 PM",
-						"3:55 PM",
-						"4:24 PM",
-						"4:52 PM",
-						"5:20 PM",
-						"5:48 PM",
-						"6:16 PM",
-						"6:59 PM",
-						"7:29 PM",
-						"7:57 PM",
-						"8:25 PM",
-						"8:53 PM",
-						"9:21 PM",
-						"9:49 PM",
-						"10:17 PM",
-						"10:45 PM",
-						"10:45 PM",
-					
-						
-					],
-					"Davis": [
-						"11:07 AM",
-						"11:35 AM",
-						"12:03 PM",
-						"12:31 PM",
-						"12:59 PM",
-						"1:42 PM",
-						"2:10 PM",
-						"2:38 PM",
-						"3:06 PM",
-						"3:34 PM",
-						"4:02 PM",
-						"4:31 PM",
-						"4:59 PM",
-						"5:27 PM",
-						"5:55 PM",
-						"6:23 PM",
-						"7:06 PM",
-						"7:36 PM",
-						"8:04 PM",
-						"8:32 PM",
-						"9:00 PM",
-						"9:28 PM",
-						"9:56 PM",
-						"10:24 PM",
-						"10:52 PM",
-						" "
-						
-					], 
-					"CCback": [
-						"11:14 AM",
-						"11:42 AM",
-						"12:10 PM",
-						"12:38 PM",
-						"1:06 PM",
-						"1:49 PM",
-						"2:17 PM",
-						"2:45 PM",
-						"3:13 PM",
-						"3:41 PM",
-						"4:09 PM",
-						"4:38 PM",
-						"5:06 PM",
-						"5:34 PM",
-						"6:02 PM",
-						"6:30 PM",
-						"7:13 PM",
-						"7:43 PM",
-						"8:11 PM",
-						"8:39 PM",
-						"9:07 PM",
-						"9:35 PM",
-						"10:03 PM",
-						"10:31 PM",
-						"10:59 PM",
-						" "
-						
-					], 
-					"Carmichael": [
-						"11:19 AM",
-						"11:47 AM",
-						"12:15 PM",
-						"12:43 PM",
-						"1:11 PM",
-						"1:54 PM",
-						"2:22 PM",
-						"2:50 PM",
-						"3:18 PM",
-						"3:46 PM",
-						
-						"4:15 PM",
-						"4:43 PM",
-						"5:11 PM",
-						"5:39 PM",
-						"6:07 PM",
-						"6:35 PM",
-						"7:18 PM",
-						"7:48 PM",
-						"8:16 PM",
-						"8:44 PM",
-						"9:12 PM",
-						"9:40 PM",
-						"10:08 PM",
-						"10:36 PM",
-						" ",
-						" "
-					],
-					"Olin": [
-						"11:21 AM", 
-						"11:49 AM",
-						"12:17 PM",
-						"12:45 PM",
-						"1:13 PM",
-						"1:56 PM",
-						"2:24 PM",
-						"2:52 PM",
-						"3:20 PM",
-						"3:48 PM",
-						"4:17 PM",
-						"4:45 PM",
-						"5:13 PM",
-						"5:41 PM",
-						"6:09 PM",
-						"6:37 PM",
-						"7:22 PM",
-						"7:50 PM",
-						"8:18 PM",
-						"8:46 PM",
-						"9:14 PM",
-						"9:42 PM",
-						"10:10 PM",
-						"10:38 PM",
-						" ",
-						" "
-						
-					]
-				}
-			}
-	</script>
 
 <style type="text/css">
 h1 {margin-top: 55px; margin-bottom: 30px;text-align: center;}
 .map {margin-bottom: 50px;}
-.tableStyle, th{
-	
-	
-  border-collapse:collapse;
-  border:1px solid black; 
+.tableStyle, th{	
+    border-collapse:collapse;
+    border:1px solid black; 
 	padding: 80px;
 	font-size: 20px;
 	text-align: left;
 	margin: auto;
 	width: 570px;
 	table-layout: fixed;
-	
 }
-td {
-	padding: 10px
-}
-tr:first-child {
-	background-color: #537eb1;
-		
-}
-	
-
-
+td {padding: 10px}
+tr:first-child {background-color: #537eb1;}
 </style>
-
 
 </head>
 <body>
-    <script type="text/javascript" src="../menu.js"></script>
-    <div class="header">
-        <a href="../index.html"><img class="logo" src="../logo.png" alt="logo"></a>
-        <i id="menu-ham" class="fa fa-bars"></i>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+    crossorigin="anonymous">
+</script>
+
+<script language="javascript">
+    var times = {
+        "mon_wed":
+            {
+                "CCfront": [
+                    "11:00 AM",
+                    "11:28 AM",
+                    "11:56 AM",
+                    "12:24 AM",
+                    "12:52 AM",
+                    "1:35 PM",
+                    "2:03 PM",
+                    "2:31 PM",
+                    "2:59 PM",
+                    "3:27 PM",
+                    "3:55 PM",
+                    "4:24 PM",
+                    "4:52 PM",
+                    "5:20 PM",
+                    "5:48 PM",
+                    "6:16 PM",
+                    "6:59 PM",
+                    "7:29 PM",
+                    "7:57 PM",
+                    "8:25 PM",
+                    "8:53 PM",
+                    "9:21 PM",
+                    "9:49 PM",
+                    "10:17 PM",
+                    "10:45 PM",
+                    "10:45 PM",
+                
+                    
+                ],
+                "Davis": [
+                    "11:07 AM",
+                    "11:35 AM",
+                    "12:03 PM",
+                    "12:31 PM",
+                    "12:59 PM",
+                    "1:42 PM",
+                    "2:10 PM",
+                    "2:38 PM",
+                    "3:06 PM",
+                    "3:34 PM",
+                    "4:02 PM",
+                    "4:31 PM",
+                    "4:59 PM",
+                    "5:27 PM",
+                    "5:55 PM",
+                    "6:23 PM",
+                    "7:06 PM",
+                    "7:36 PM",
+                    "8:04 PM",
+                    "8:32 PM",
+                    "9:00 PM",
+                    "9:28 PM",
+                    "9:56 PM",
+                    "10:24 PM",
+                    "10:52 PM",
+                    " "
+                    
+                ], 
+                "CCback": [
+                    "11:14 AM",
+                    "11:42 AM",
+                    "12:10 PM",
+                    "12:38 PM",
+                    "1:06 PM",
+                    "1:49 PM",
+                    "2:17 PM",
+                    "2:45 PM",
+                    "3:13 PM",
+                    "3:41 PM",
+                    "4:09 PM",
+                    "4:38 PM",
+                    "5:06 PM",
+                    "5:34 PM",
+                    "6:02 PM",
+                    "6:30 PM",
+                    "7:13 PM",
+                    "7:43 PM",
+                    "8:11 PM",
+                    "8:39 PM",
+                    "9:07 PM",
+                    "9:35 PM",
+                    "10:03 PM",
+                    "10:31 PM",
+                    "10:59 PM",
+                    " "
+                    
+                ], 
+                "Carmichael": [
+                    "11:19 AM",
+                    "11:47 AM",
+                    "12:15 PM",
+                    "12:43 PM",
+                    "1:11 PM",
+                    "1:54 PM",
+                    "2:22 PM",
+                    "2:50 PM",
+                    "3:18 PM",
+                    "3:46 PM",
+                    
+                    "4:15 PM",
+                    "4:43 PM",
+                    "5:11 PM",
+                    "5:39 PM",
+                    "6:07 PM",
+                    "6:35 PM",
+                    "7:18 PM",
+                    "7:48 PM",
+                    "8:16 PM",
+                    "8:44 PM",
+                    "9:12 PM",
+                    "9:40 PM",
+                    "10:08 PM",
+                    "10:36 PM",
+                    " ",
+                    " "
+                ],
+                "Olin": [
+                    "11:21 AM", 
+                    "11:49 AM",
+                    "12:17 PM",
+                    "12:45 PM",
+                    "1:13 PM",
+                    "1:56 PM",
+                    "2:24 PM",
+                    "2:52 PM",
+                    "3:20 PM",
+                    "3:48 PM",
+                    "4:17 PM",
+                    "4:45 PM",
+                    "5:13 PM",
+                    "5:41 PM",
+                    "6:09 PM",
+                    "6:37 PM",
+                    "7:22 PM",
+                    "7:50 PM",
+                    "8:18 PM",
+                    "8:46 PM",
+                    "9:14 PM",
+                    "9:42 PM",
+                    "10:10 PM",
+                    "10:38 PM",
+                    " ",
+                    " "
+                    
+                ]
+            }
+        }
+</script>
+<script type="text/javascript" src="../menu.js"></script>
+
+<div class="header">
+    <a href="../index.html"><img class="logo" src="../logo.png" alt="logo"></a>
+    <i id="menu-ham" class="fa fa-bars"></i>
+</div>
+
+<div class="menu">
+    <div class="close-menu">
+        <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
     </div>
 
-    <div class="menu">
-        <div class="close-menu">
-            <i id="menu-ham" class="fa fa-bars" style="color: black"></i>       
-        </div>
+    <ul>
+        <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="../index.html">Home</a></li>
+        <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="../about.html">About</a></li>
+        <li onclick="showMenu()"><span class="menu-icon"><i class="fas fa-calendar"></i></span><a>Schedule</a></li>
+        <span class="sub-menu">
+            <a href="mon_wed.html"><li>Davis Square Mon-Wed</li></a>
+            <a href="thurs.html"><li>Davis Square Thurs</li></a>
+            <a href="fri.html"><li>Davis Square Fri</li></a>
+            <a href="sat.html"><li>Davis Square Sat</li></a>
+            <a href="sun.html"><li>Davis Square Sun</li></a>
+            <a href="smfa_weekday.html"><li>SMFA Mon-Fri</li></a>
+            <a href="smfa_sat.html"><li>SMFA Sat</li></a>
+        </span>
+        <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="../contact.html">Contact</a></li>
+    </ul>
+</div>
 
-        <ul>
-            <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="../index.html">Home</a></li>
-            <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="../about.html">About</a></li>
-            <li onclick="showMenu()"><span class="menu-icon"><i class="fas fa-calendar"></i></span><a>Schedule</a></li>
-            <span class="sub-menu">
-                <a href="mon_wed.html"><li>Davis Square Mon-Wed</li></a>
-                <a href="thurs.html"><li>Davis Square Thurs</li></a>
-                <a href="fri.html"><li>Davis Square Fri</li></a>
-                <a href="sat.html"><li>Davis Square Sat</li></a>
-                <a href="sun.html"><li>Davis Square Sun</li></a>
-                <a href="smfa_weekday.html"><li>SMFA Mon-Fri</li></a>
-                <a href="smfa_sat.html"><li>SMFA Sat</li></a>
-            </span>
-            <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="../contact.html">Contact</a></li>
-        </ul>
-    </div>
-	
-	
-	
-	<div class="map" style="padding: auto; margin-left:auto; margin-right:auto;">
-		<h1> Davis Square Sunday Schedule </h1>
-		<table class = "tableStyle" id = "tablesched" border = "1">
-		</table>
-		<script type="text/javascript">
-			
-			var i , j;
-			var a = document.getElementById("tablesched").insertRow(0)
-			a.insertCell(0).innerHTML = "Campus Center: P-Row"
-			a.insertCell(1).innerHTML = "Davis Square"
-			a.insertCell(2).innerHTML = "Campus Center: Talbot"
-			a.insertCell(3).innerHTML = "Carmichael"
-			a.insertCell(4).innerHTML = "Olin"
-			
-			var liststring = JSON.stringify(times);
-			var jsonlist = JSON.parse(liststring);
-			
-			for (r=1; r<27; r++) {
-				var x = document.getElementById("tablesched").insertRow(r)
-           		
-               	x.insertCell(0).innerHTML = jsonlist.mon_wed.CCfront[r-1]
-				x.insertCell(1).innerHTML = jsonlist.mon_wed.Davis[r-1]
-				x.insertCell(2).innerHTML = jsonlist.mon_wed.CCback[r-1]
-				x.insertCell(3).innerHTML = jsonlist.mon_wed.Carmichael[r-1]
-				x.insertCell(4).innerHTML = jsonlist.mon_wed.Olin[r-1]
-      
-       		}
-		</script>
+<div class="map" style="padding: auto; margin-left:auto; margin-right:auto;">
+	<h1> Davis Square Sunday Schedule </h1>
+	<table class = "tableStyle" id = "tablesched" border = "1">
+	</table>
+	<script type="text/javascript">
 		
-	</div>
-	<p></p>
+		var i , j;
+		var a = document.getElementById("tablesched").insertRow(0)
+		a.insertCell(0).innerHTML = "Campus Center: P-Row"
+		a.insertCell(1).innerHTML = "Davis Square"
+		a.insertCell(2).innerHTML = "Campus Center: Talbot"
+		a.insertCell(3).innerHTML = "Carmichael"
+		a.insertCell(4).innerHTML = "Olin"
+		
+		var liststring = JSON.stringify(times);
+		var jsonlist = JSON.parse(liststring);
+		
+		for (r=1; r<27; r++) {
+			var x = document.getElementById("tablesched").insertRow(r)
+       		
+           	x.insertCell(0).innerHTML = jsonlist.mon_wed.CCfront[r-1]
+			x.insertCell(1).innerHTML = jsonlist.mon_wed.Davis[r-1]
+			x.insertCell(2).innerHTML = jsonlist.mon_wed.CCback[r-1]
+			x.insertCell(3).innerHTML = jsonlist.mon_wed.Carmichael[r-1]
+			x.insertCell(4).innerHTML = jsonlist.mon_wed.Olin[r-1]
+   		}
+	</script>
+	
+</div>
+<p></p>
+
 <div class="footer">
-        <h1>TUFTS RIDES</h1>
-        <p><a href="../about.html">About</a> | <a href="../schedules.html">Schedule</a>| <a href="../contact.html">Contact</a> 
-        <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
-    </div>
+    <h1>TUFTS RIDES</h1>
+    <p><a href="../about.html">About</a> | <a href="../schedules.html">Schedule</a>| <a href="../contact.html">Contact</a> 
+    <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
+</div>
 
 </body>
 </html>

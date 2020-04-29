@@ -6,105 +6,98 @@
 <title>Tufts Rides</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 <link rel="stylesheet" href="stylesheet.css">
+
 <style type="text/css">
 .img {display: inline;}
-
 @media (max-width: 970px) {
 	.img {display: none;}
 }
-
 .info {margin: 30px 40px;}
-
 .map {height: auto;}
-
 a {text-decoration: none; color: black;}
-
 a:hover {color: #a6a6a6;}
-
 </style>
-
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
-        crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="menu.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+    crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="menu.js"></script>
 
-	<div class="header">
-    	<a href="index.html"><img class="logo" src="logo.png" alt="logo"></a>
-    	<i id="menu-ham" class="fa fa-bars"></i>
-	</div>
+<div class="header">
+	<a href="index.html"><img class="logo" src="logo.png" alt="logo"></a>
+	<i id="menu-ham" class="fa fa-bars"></i>
+</div>
 
-    <div class="menu">
-        <div class="close-menu">
-            <i id="menu-ham" class="fa fa-bars" style="color: black"></i>    
-        </div>
-        <ul>
-            <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="index.html">Home</a></li>
-            <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="about.html">About</a></li>
-            <li onclick="showMenu()"><span class="menu-icon"><i class="fas fa-calendar"></i></span><a>Schedule</a></li>
-            <span class="sub-menu">
-                <a href="schedule/mon_wed.html"><li>Davis Square Mon-Wed</li></a>
-                <a href="schedule/thurs.html"><li>Davis Square Thurs</li></a>
-                <a href="schedule/fri.html"><li>Davis Square Fri</li></a>
-                <a href="schedule/sat.html"><li>Davis Square Sat</li></a>
-                <a href="schedule/sun.html"><li>Davis Square Sun</li></a>
-                <a href="schedule/smfa_weekday.html"><li>SMFA Mon-Fri</li></a>
-                <a href="schedule/smfa_sat.html"><li>SMFA Sat</li></a>
-            </span>
-            <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="contact.html">Contact</a></li>
-        </ul>
+<div class="menu">
+    <div class="close-menu">
+        <i id="menu-ham" class="fa fa-bars" style="color: black"></i>    
     </div>
+    <ul>
+        <li><span class="menu-icon"><i class="fas fa-home"></i></span><a href="index.html">Home</a></li>
+        <li><span class="menu-icon"><i class="fas fa-info"></i></span><a href="about.html">About</a></li>
+        <li onclick="showMenu()"><span class="menu-icon"><i class="fas fa-calendar"></i></span><a>Schedule</a></li>
+        <span class="sub-menu">
+            <a href="schedule/mon_wed.html"><li>Davis Square Mon-Wed</li></a>
+            <a href="schedule/thurs.html"><li>Davis Square Thurs</li></a>
+            <a href="schedule/fri.html"><li>Davis Square Fri</li></a>
+            <a href="schedule/sat.html"><li>Davis Square Sat</li></a>
+            <a href="schedule/sun.html"><li>Davis Square Sun</li></a>
+            <a href="schedule/smfa_weekday.html"><li>SMFA Mon-Fri</li></a>
+            <a href="schedule/smfa_sat.html"><li>SMFA Sat</li></a>
+        </span>
+        <li style="border-bottom: 2px solid #ededed;"><span class="menu-icon"><i class="fas fa-id-card"></i></span><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
 
-	<div class="map">
-		 <table align="center">
-			<tr>
-				<td>
-					<div class = "info" style="display: inline-block; text-align: left">
-						<h1>About</h1>
-							<p>Tufts Rides is a web app that allows Tufts students to see how far away they are from a certain stop as well as arrival times and schedule.</p>
+<div class="map">
+	 <table align="center">
+		<tr>
+			<td>
+				<div class = "info" style="display: inline-block; text-align: left">
+					<h1>About</h1>
+						<p>Tufts Rides is a web app that allows Tufts students to see how far away they are from a certain stop as well as arrival times and schedule.</p>
+					<br/>
+					<p>
+						<h3>Map</h3>
+						The map shows you how far away you are from a stop. 
 						<br/>
-						<p>
-							<h3>Map</h3>
-							The map shows you how far away you are from a stop. 
-							<br/>
-							You can choose which stop you want directions for, and it tells you the time it takes to get there.
-							<br/> 
-							So you can plan what time to leave in order to get to the station on time!
-						</p>
+						You can choose which stop you want directions for, and it tells you the time it takes to get there.
+						<br/> 
+						So you can plan what time to leave in order to get to the station on time!
+					</p>
+					<br/>
+					<p>
+						<h3>Arrival time</h3>
+						Below the map, there is a list of stops as well as the times until the next shuttle arrives.
+		 				</br>
+		 				The two times show the closest time to arrival, and the second closest time to arrival.
 						<br/>
-						<p>
-							<h3>Arrival time</h3>
-							Below the map, there is a list of stops as well as the times until the next shuttle arrives.
-			 				</br>
-			 				The two times show the closest time to arrival, and the second closest time to arrival.
-							<br/>
-							In this way, instead of looking at the schedule for the next shuttle, you can look right below the map!
-						</p>
-						<br/>
-						<p>
-							<a href="schedules/schedule.html"><h3>Schedule</h3></a>
-							There's also the option to look at the whole schedule if you need to plan ahead.
-						</p>
-				</td>
-				<td>
-					<div class="img">
-						<img class="dowlingImg" src = "shuttle_img.jpg" style="padding: 50px" width="500em" alt="shuttle">
-					</div>
-				</td>
-			</tr>
-		</table>
+						In this way, instead of looking at the schedule for the next shuttle, you can look right below the map!
+					</p>
+					<br/>
+					<p>
+						<a href="schedules/schedule.html"><h3>Schedule</h3></a>
+						There's also the option to look at the whole schedule if you need to plan ahead.
+					</p>
+			</td>
+			<td>
+				<div class="img">
+					<img class="dowlingImg" src = "shuttle_img.jpg" style="padding: 50px" width="500em" alt="shuttle">
+				</div>
+			</td>
+		</tr>
+	</table>
 
-	</div>
+</div>
 
-
-	<div class="footer">
-        <h1>TUFTS RIDES</h1>
-        <p><a href="about.html">About</a> | <a href="schedule/schedules.html">Schedule</a>| <a href="contact.html">Contact</a> 
-        <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
-    </div>
+<div class="footer">
+    <h1>TUFTS RIDES</h1>
+    <p><a href="about.html">About</a> | <a href="schedule/schedules.html">Schedule</a>| <a href="contact.html">Contact</a> 
+    <p>COPYRIGHT TUFTS RIDES 2020, ALL RIGHTS RESERVED</p>
+</div>
 
 </body>
 </html>
