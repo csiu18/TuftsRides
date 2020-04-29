@@ -25,7 +25,7 @@ async function getTime(stopName) {
     var today = new Date();
     var day = today.getDay();
     var hour = today.getHours();
-    var hour = 3;
+    //var hour = 3;
     var min = today.getMinutes();
     var index = 0;
     var timeObj;
