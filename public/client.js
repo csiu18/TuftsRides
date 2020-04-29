@@ -1,15 +1,18 @@
-var results = null;
-var stop = null;
-var query = null;
+var results = null, results2 = null, stop = null, query = null;
 
 function getResults(){
     query = document.querySelector('.query').value;
     query = query.toLowerCase();
     results = document.querySelector('.results');
+    results2 = document.querySelector('.results2');
     background = document.querySelector('.background');
+
+    console.log(query);
 
     // results.style.height = "340px";
     background.style.height = "1700px";
+    results.style.display = "block";
+    results2.style.display = "none";
 
     // have to query for rest of stops
     if (query == "campus center front") {
@@ -33,6 +36,13 @@ function getResults(){
     } else if (query == "smfa") {
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
+    } else if (query == "campus center") {
+        results.style.display = "none";
+        results2.style.display = "block";
+        background.style.height = "1870px";
+        stop1 = document.querySelector("#stop1");
+        stop2 = document.querySelector("#stop3");
+        results2.innerHTML = stop1.outerHTML + stop2.outerHTML;
     }
 }
 
@@ -66,7 +76,8 @@ const time7a = document.querySelector('.time7a');
 const time7b = document.querySelector('.time7b');
 
 function getTime(time) {
-    if (time >= 60) return "1 hr+";
+    if (time == ". . .") return time;
+    else if (time >= 60) return "1 hr+";
     else return time + " min";
 }
 
