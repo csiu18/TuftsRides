@@ -25,10 +25,131 @@ async function getTime(stopName) {
     var today = new Date();
     var day = today.getDay();
     var hour = today.getHours();
+    var hour = 3;
     var min = today.getMinutes();
     var index = 0;
+    var timeObj;
 
-    // console.log(stopName + " Current time: " + hour + ":" + min);
+    if (stopName == "CC_P_Row") {
+        if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 4 & hour < 7) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 5 & hour < 7 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & hour < 10 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+         } else if (day == 0 & (hour > 22 | hour < 10)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+    } 
+    }
+
+    if (stopName == "Davis") {
+        if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 4 & hour < 7) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 5 & hour < 7 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & hour < 10 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+         } else if (day == 0 & (hour > 22 | hour < 10)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+    } 
+    }
+
+    if (stopName == "CC_Talbot") {
+        if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 4 & hour < 7) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 5 & hour < 7 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & hour < 10 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+         } else if (day == 0 & (hour > 22 | hour < 10)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+    } 
+    }
+
+    if (stopName == "Carm") {
+        if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 4 & hour < 7) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 5 & hour < 7 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & hour < 10 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+         } else if (day == 0 & (hour > 22 | hour < 10)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+    } 
+    }
+
+    if (stopName == "Olin") {
+        if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 4 & hour < 7) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 5 & hour < 7 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & hour < 10 & hour > 1) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+         } else if (day == 0 & (hour > 22 | hour < 10)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+    } 
+    }
+
+    if (stopName == "SMFA") {
+        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) & (hour > 22 | hour < 7)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & (hour < 8 | hour > 12)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        }
+    } 
+
+
+    if (stopName == "Aidekmann") {
+        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) &  hour < 6) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        } else if (day == 6 & (hour < 7 | hour > 11)) {
+            timeObj = {"timea" : ". . .", "timeb" : ". . ."};
+            return timeObj;
+        }
+    } 
+
+
+
+
+    //console.log(stopName + " Current time: " + hour + ":" + min);
 
     var stop = await coll.findOne({"stname" : stopName});
     var stopObj = getDay(day, stop);
@@ -57,7 +178,7 @@ async function getTime(stopName) {
        diff2 = (h2 * 60 + m2) - (hour * 60 + min);
     }
     
-    var timeObj = {"timea" : diff1, "timeb" : diff2}; 
+    timeObj = {"timea" : diff1, "timeb" : diff2}; 
     // console.log(timeObj);
 
     return timeObj;
