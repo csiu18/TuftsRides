@@ -21,14 +21,16 @@ async function startServer() {
 
 }
 
+
 async function getTime(stopName) {
     var today = new Date();
     var day = today.getDay();
     var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
+    var timeObj = {"timea" : ". . .", "timeb" : ". . ."};
 
-    // console.log(stopName + " Current time: " + hour + ":" + min);
+    if (!isRunning(day, hour, stopName)) return timeObj;
 
     var stop = await coll.findOne({"stname" : stopName});
     var stopObj = getDay(day, stop);
@@ -46,10 +48,10 @@ async function getTime(stopName) {
         }
     }
 
-    h1 = stopObj[index].getHours() + 4; 
-    m1 = stopObj[index].getMinutes();
-    diff1 = (h1 * 60 + m1) - (hour * 60 + min);
-    diff2 = ". . .";
+    var h1 = stopObj[index].getHours() + 4; 
+    var m1 = stopObj[index].getMinutes();
+    var diff1 = (h1 * 60 + m1) - (hour * 60 + min);
+    var diff2 = ". . .";
 
     if (index != stopObj.length - 1) {
        h2 = stopObj[index + 1].getHours() + 4;
@@ -58,11 +60,42 @@ async function getTime(stopName) {
     }
     
     var timeObj = {"timea" : diff1, "timeb" : diff2}; 
-    // console.log(timeObj);
+    //console.log(timeObj);
 
     return timeObj;
 }
 
+function isRunning(day, hour, stopName) {
+    if (stopName == "SMFA") {
+        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) & (hour > 22 | hour < 7)) {           
+            return false;
+        } else if (day == 6 & (hour < 8 | hour > 12)) {       
+            return false;
+        }
+    } 
+
+    if (stopName == "Aidekmann") {
+        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) &  hour < 6) {          
+            return false;
+        } else if (day == 6 & (hour < 7 | hour > 11)) {
+            return false;
+        }
+    } 
+
+    if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+        return false;
+    } else if (day == 4 & hour < 7) {
+        return false;
+    } else if (day == 5 & hour < 7 & hour > 1) {        
+        return false;
+    } else if (day == 6 & hour < 10 & hour > 1) {
+        return false;
+    } else if (day == 0 & (hour > 22 | hour < 10)) {            
+        return false;
+    } 
+
+    return true;
+}
 function getDay(day, stop) {
     // day = 1; // for testing purposes 
 
