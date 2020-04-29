@@ -171,4 +171,4 @@ const interval = setInterval(function() {
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
     showF();
- }, 500);
+ }, 1000);
