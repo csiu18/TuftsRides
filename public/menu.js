@@ -3,9 +3,25 @@ $(document).ready(function(){
         $('.menu').animate({right: '0%'}, 100)
     });
     $('.close-menu').click(function () {
-        $('.menu').animate({right: '-50%'}, 100)
+        $('.menu').animate({right: '-100%'}, 100)
 });
 });
+
+var x = window.matchMedia("(max-width: 625px)");
+myFunction(x);
+x.addListen(myFunction);
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    $(document).ready(function(){
+        $('#menu-ham').click(function () {
+            $('.menu').animate({right: '0%'}, 100)
+        });
+        $('.close-menu').click(function () {
+            $('.menu').animate({right: '-100%'}, 100)
+        });
+    });
+  }
+}
 
 function showMenu() {
     var subMenu = document.querySelector('.sub-menu');

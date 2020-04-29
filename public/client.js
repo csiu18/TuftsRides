@@ -7,7 +7,7 @@ function getResults(){
     results2 = document.querySelector('.results2');
     background = document.querySelector('.background');
 
-    background.style.height = "1700px";
+    background.style.height = "1900px";
     results.style.display = "block";
     results2.style.display = "none";
 
@@ -35,11 +35,12 @@ function getResults(){
     } else if (query == "campus center") {
         results.style.display = "none";
         results2.style.display = "block";
-        background.style.height = "1870px";
+        background.style.height = "2100px";
         stop1 = document.querySelector("#stop1");
         stop2 = document.querySelector("#stop3");
         results2.innerHTML = stop1.outerHTML + stop2.outerHTML;
     }
+    
 }
 
 
@@ -66,12 +67,21 @@ function showF(){
 
     var x = document.querySelector("#FAVE");
     var y = document.querySelector('.background');
-    var height = faveStops.length * 170 + 1540;
+    query = document.querySelector('.query').value;
+    height = faveStops.length * 170 + 1540;
     var newHeight = "" + height + "px";
+
+    if (query == "campus center") {
+        height += 360;
+        newHeight = "" + height + "px";
+    } else if (query != "") {
+        height += 170;
+        newHeight = "" + height + "px";
+    }
     y.style.height = newHeight;
 
     if (x.style.display == "none") {
-        y.style.height = "1500px";
+        y.style.height = newHeight;
     }
 
     // console.log("fav stop here " + (faveStops[0]));
@@ -100,7 +110,8 @@ function showF(){
             str += stop.outerHTML;
         }
     }
-    document.getElementById("FAVE").innerHTML = str;       
+    document.getElementById("FAVE").innerHTML = str; 
+    console.log(str);      
 }
 
 const time1a = document.querySelector('.time1a');
@@ -165,9 +176,9 @@ getData();
 if (document.querySelector('.query').value != "") 
    results.innerHTML = stop.outerHTML;
 showF();
-
 const interval = setInterval(function() {
     getData();
+    
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
     showF();

@@ -58,3 +58,7 @@ body {
 .footer h1 {margin-top: 0;}
 .footer a {text-decoration: none; color: black;}
 .footer a:hover {color: #1c1c1e;}
+@media screen and (max-width: 625px) {
+    .menu {right: -100%; width: 100%;}
+
+}
