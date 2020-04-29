@@ -66,31 +66,34 @@ async function getTime(stopName) {
 }
 
 function isRunning(day, hour, stopName) {
+    // if (stopName == "CC_P_Row") {
+    //     if ((day == 1) && (hour >= 22 && min >= 
+    // }
     if (stopName == "SMFA") {
-        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) & (hour > 22 | hour < 7)) {           
+        if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5) && (hour > 23 || hour < 7)) {           
             return false;
-        } else if (day == 6 & (hour < 8 | hour > 12)) {       
+        } else if (day == 6 && (hour < 8 || hour > 12)) {       
             return false;
         }
     } 
 
     if (stopName == "Aidekmann") {
-        if ((day == 1 | day == 2 | day == 3 | day == 4 | day == 5) &  hour < 6) {          
+        if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5) && (hour < 6 && hour > 0)) {          
             return false;
-        } else if (day == 6 & (hour < 7 | hour > 11)) {
+        } else if (day == 6 && (hour < 7 || hour > 11)) {
             return false;
         }
     } 
 
-    if ((day == 1 | day == 2 | day == 3) & (hour > 22 | hour < 7)) {
+    if ((day == 1 || day == 2 || day == 3) && (hour > 22 || hour < 7)) {
         return false;
-    } else if (day == 4 & hour < 7) {
+    } else if (day == 4 && hour < 7) {
         return false;
-    } else if (day == 5 & hour < 7 & hour > 1) {        
+    } else if (day == 5 && hour < 7 && hour > 1) {        
         return false;
-    } else if (day == 6 & hour < 10 & hour > 1) {
+    } else if (day == 6 && hour < 10 && hour > 1) {
         return false;
-    } else if (day == 0 & (hour > 22 | hour < 10)) {            
+    } else if (day == 0 && (hour > 22 || hour < 10)) {            
         return false;
     } 
 
