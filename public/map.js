@@ -12,7 +12,8 @@ var map = new mapboxgl.Map({
 
 // Add Search Box 
 var directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken
+    accessToken: mapboxgl.accessToken,
+    profile: 'mapbox/walking'
   });
   map.addControl(directions, 'top-left');
 
