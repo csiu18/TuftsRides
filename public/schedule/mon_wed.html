@@ -24,8 +24,13 @@ td {padding: 10px}
 tr:first-child {background-color: #537eb1;}
 @media (max-width: 970px) {
 	.tableHeader {font-size: 20px;}
-	.tableStyle {overflow-x: auto;}
+	.tableStyle {
+		word-wrap: break-word;
+		width: 500px;
+		font-size: 15px;
+	}
 }
+
 </style>
 
 </head>
@@ -220,7 +225,7 @@ tr:first-child {background-color: #537eb1;}
 
 <div class="map" style="padding: auto; margin-left:auto; margin-right:auto;">
 	<h1 class = "tableHeader">Davis Square Monday - Wednesday Schedule </h1>
-	<table class = "tableStyle" id = "tablesched" border = "1">
+	<table class = "tableStyle" id = "tablesched" border = "1" style = "overflow-x:auto;">
 	</table>
 	<script type="text/javascript">
 		
