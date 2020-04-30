@@ -4,6 +4,7 @@ function getResults(){
     query = (document.querySelector('.query').value).toLowerCase();
     results = document.querySelector('.results');
     background = document.querySelector('.background');
+    oldHeight = (background.style.height).substring(0,4);
     background.style.height = "1900px";
 
     if (query == "campus center front") {
@@ -27,8 +28,9 @@ function getResults(){
     } else if (query == "smfa") {
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
-    } else {
-        background.style.height = "1550px";
+    } else { 
+        newHeight = parseInt(oldHeight) + 40;
+        background.style.height = newHeight + "px";
         results.innerHTML = "<p class='no-results'>Stop was not found!</p>";
     }
 }
@@ -36,14 +38,23 @@ function getResults(){
 function displayFavs() { 
     var x = document.querySelector("#FAVE");
     var y = document.querySelector('.background');
+    var up = document.querySelector('#up');
+    var down = document.querySelector('#down');
     var faveStops = getFavArray();
-    var height = faveStops.length * 170 + 1540;
+    var oldHeight = (y.style.height).substring(0,4);
+
+    var height = faveStops.length * 170 + 40 + parseInt(oldHeight);
     var newHeight = "" + height + "px"; 
 
+    alert(height);
     if (x.style.display === "none") {
+        down.style.display = "none";
+        up.style.display = "block";
         x.style.display = "block";
         y.style.height = newHeight;
     } else {
+        down.style.display = "block";
+        up.style.display = "none";
         y.style.height = "1500px";
         x.style.display = "none";
     }
@@ -133,7 +144,9 @@ const interval = setInterval(function() {
 
     if (x.style.display == "none") {
         y.style.height = "1500px";
+        if (query != "") y.style.height = "1700px";
     }
+
     var stopp = "";
 
     for(var i = 0; i < faveStops.length; i++){
