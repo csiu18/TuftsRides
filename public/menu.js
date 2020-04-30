@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 var x = window.matchMedia("(max-width: 625px)");
 myFunction(x);
-x.addListen(myFunction);
+x.addListener(myFunction);
 function myFunction(x) {
   if (x.matches) { // If media query matches
     $(document).ready(function(){

@@ -1,15 +1,10 @@
 var results = null, results2 = null, stop = null, query = null;
 
 function getResults(){
-    query = document.querySelector('.query').value;
-    query = query.toLowerCase();
+    query = (document.querySelector('.query').value).toLowerCase();
     results = document.querySelector('.results');
-    results2 = document.querySelector('.results2');
     background = document.querySelector('.background');
-
     background.style.height = "1900px";
-    results.style.display = "block";
-    results2.style.display = "none";
 
     if (query == "campus center front") {
         stop = document.querySelector('#stop1');
@@ -32,17 +27,8 @@ function getResults(){
     } else if (query == "smfa") {
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
-    } else if (query == "campus center") {
-        results.style.display = "none";
-        results2.style.display = "block";
-        background.style.height = "2100px";
-        stop1 = document.querySelector("#stop1");
-        stop2 = document.querySelector("#stop3");
-        results2.innerHTML = stop1.outerHTML + stop2.outerHTML;
-    }
-    
+    }  
 }
-
 
 function displayFavs() { 
     var x = document.querySelector("#FAVE");
@@ -54,64 +40,10 @@ function displayFavs() {
     if (x.style.display === "none") {
         x.style.display = "block";
         y.style.height = newHeight;
-
     } else {
-        x.style.display = "none";
         y.style.height = "1500px";
+        x.style.display = "none";
     }
-}
-
-function showF(){
-    var faveStops = getFavArray();
-    var str = "";
-
-    var x = document.querySelector("#FAVE");
-    var y = document.querySelector('.background');
-    query = document.querySelector('.query').value;
-    height = faveStops.length * 170 + 1540;
-    var newHeight = "" + height + "px";
-
-    if (query == "campus center") {
-        height += 360;
-        newHeight = "" + height + "px";
-    } else if (query != "") {
-        height += 170;
-        newHeight = "" + height + "px";
-    }
-    y.style.height = newHeight;
-
-    if (x.style.display == "none") {
-        y.style.height = newHeight;
-    }
-
-    // console.log("fav stop here " + (faveStops[0]));
-    for(var i = 0; i < faveStops.length; i++){
-        if (faveStops[i] == "CAMPUS CENTER FRONT") {
-           stop = document.querySelector('#stop1'); 
-           str += stop.outerHTML;
-        } else if (faveStops[i] == "DAVIS SQUARE") {
-            stop = document.querySelector('#stop2');
-            str += stop.outerHTML;
-        } else if (faveStops[i] == "CAMPUS CENTER BACK") {
-            stop = document.querySelector('#stop3');
-            str += stop.outerHTML;
-        } else if (faveStops[i] == "CARMICHAEL HALL") {
-            stop = document.querySelector('#stop4');
-            str += stop.outerHTML;
-        } else if (faveStops[i] == "OLIN HALL") {
-            stop = document.querySelector('#stop5');
-            str += stop.outerHTML;
-        }
-        else if (faveStops[i] == "AIDEKMANN") {
-            stop = document.querySelector('#stop6');
-            str += stop.outerHTML;
-        } else if (faveStops[i] == "SMFA") {
-            stop = document.querySelector('#stop7');
-            str += stop.outerHTML;
-        }
-    }
-    document.getElementById("FAVE").innerHTML = str; 
-    console.log(str);      
 }
 
 const time1a = document.querySelector('.time1a');
@@ -173,13 +105,66 @@ async function getData() {
 }
 
 getData();
-if (document.querySelector('.query').value != "") 
-   results.innerHTML = stop.outerHTML;
-showF();
+
 const interval = setInterval(function() {
     getData();
     
     if (document.querySelector('.query').value != "") 
         results.innerHTML = stop.outerHTML;
-    showF();
+
+    var faveStops = getFavArray();
+    var str = "";
+
+    var x = document.querySelector("#FAVE");
+    var y = document.querySelector('.background');
+    query = (document.querySelector('.query').value).toLowerCase();
+    height = faveStops.length * 170 + 1540;
+    var newHeight = "" + height + "px";
+
+    if (query != "") {
+        height += 170;
+        newHeight = "" + height + "px";
+    }
+
+    y.style.height = newHeight;
+
+    if (x.style.display == "none") {
+        y.style.height = "1500px";
+    }
+    var stopp = "";
+    // console.log("fav stop here " + (faveStops[0]));
+    for(var i = 0; i < faveStops.length; i++){
+            if (faveStops[i] == "CAMPUS CENTER FRONT") {
+                stopp = document.querySelector('#stop1').outerHTML; 
+                index = stopp.search('id="stop1"');
+                stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "DAVIS SQUARE") {
+                stopp = document.querySelector('#stop2').outerHTML; 
+                index = stopp.search('id="stop2"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "CAMPUS CENTER BACK") {
+                stopp = document.querySelector('#stop3').outerHTML; 
+                index = stopp.search('id="stop"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "CARMICHAEL HALL") {
+                stopp = document.querySelector('#stop4').outerHTML; 
+                index = stopp.search('id="stop4"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "OLIN HALL") {
+                stopp = document.querySelector('#stop5').outerHTML; 
+                index = stopp.search('id="stop5"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "AIDEKMANN") {
+                stopp = document.querySelector('#stop6').outerHTML; 
+                index = stopp.search('id="stop6"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            } else if (faveStops[i] == "SMFA") {
+                stopp = document.querySelector('#stop7').outerHTML; 
+                index = stopp.search('id="stop7"');
+                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+            }
+            str += stopp;
+    }
+    document.getElementById("FAVE").innerHTML = str; 
+    console.log(str);
  }, 1000);
