@@ -34,7 +34,7 @@ async function getTime(stopName) {
     var stop = await coll.findOne({"stname" : stopName});
     var stopObj = getDay(day, stop);
 
-    for (i = 0; i < stopObj.length; i++) {
+    for (i = 0; i < stopObj.length ; i++) {
         var h = stopObj[i].getHours() + 4;
         var m = stopObj[i].getMinutes();
 
@@ -65,19 +65,23 @@ async function getTime(stopName) {
 
 function isRunning(day, hour, stopName) {
     if (stopName == "SMFA") {
-        if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5) && (hour > 23 || hour < 7)) {           
+        if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5) && (hour > 23 || hour < 7)) {     
             return false;
-        } else if (day == 6 && (hour < 8 || hour > 12)) {       
+        } else if (day == 6 && (hour < 8 || hour > 12)) {      
             return false;
-        }
-    } 
+        } else if(day == 0){
+            return false;
+        } 
+    }
 
     if (stopName == "Aidekmann") {
         if ((day == 1 || day == 2 || day == 3 || day == 4 || day == 5) && (hour < 6 && hour > 0)) {          
             return false;
         } else if (day == 6 && (hour < 7 || hour > 11)) {
             return false;
-        }
+        } else if(day == 0){
+            return false;
+        }   
     } 
 
     if ((day == 1 || day == 2 || day == 3) && (hour > 22 || hour < 7)) {
@@ -99,7 +103,7 @@ function getDay(day, stop) {
     if (day == 1) return stop.times_mon;
     if (day == 2) return stop.times_tues;
     if (day == 3) return stop.times_wed;
-    if (day == 4) return stop.times_thurs;
+    if (day == 4) return stop.times_thur;
     if (day == 5) return stop.times_fri;
     if (day == 6) return stop.times_sat;
     if (day == 0) return stop.times_sun;
