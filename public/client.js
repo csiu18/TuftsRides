@@ -46,7 +46,6 @@ function displayFavs() {
     var height = faveStops.length * 170 + 40 + parseInt(oldHeight);
     var newHeight = "" + height + "px"; 
 
-    alert(height);
     if (x.style.display === "none") {
         down.style.display = "none";
         up.style.display = "block";
