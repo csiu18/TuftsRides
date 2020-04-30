@@ -12,6 +12,7 @@
     font-size: 25px;
     font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;  
 }
+.no-results {margin-left: 2%; font-size: 22px; color: white;}
 #search {color: white; font-size: 25px; margin-left: 5px;}
 #search:hover {cursor: pointer;}
 #down {float: left; font-size: 35px; margin-right: 10px; cursor: pointer;}

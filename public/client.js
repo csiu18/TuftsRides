@@ -27,7 +27,10 @@ function getResults(){
     } else if (query == "smfa") {
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
-    }  
+    } else {
+        background.style.height = "1550px";
+        results.innerHTML = "<p class='no-results'>Stop was not found!</p>";
+    }
 }
 
 function displayFavs() { 
@@ -132,7 +135,7 @@ const interval = setInterval(function() {
         y.style.height = "1500px";
     }
     var stopp = "";
-    // console.log("fav stop here " + (faveStops[0]));
+
     for(var i = 0; i < faveStops.length; i++){
         if (faveStops[i] == "CAMPUS CENTER FRONT") {
             stopp = document.querySelector('#stop1').outerHTML; 
@@ -166,5 +169,4 @@ const interval = setInterval(function() {
         str += stopp;
     }
     document.getElementById("FAVE").innerHTML = str; 
-    // console.log(str);
  }, 1000);
