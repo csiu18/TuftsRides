@@ -16,6 +16,80 @@
 .map {height: auto;}
 a {text-decoration: none; color: black;}
 a:hover {color: #a6a6a6;}
+
+	
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+h3{
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 22px;
+}
+.row{
+    width: 98%;    
+    padding:1%;
+}
+.column {
+  display: block;
+  float: left;
+  width: 18%;
+  padding:1%;
+  margin-bottom: 16px;
+  
+}
+
+
+.card {
+	border:1px solid black;
+  
+}
+
+
+.container {
+  padding: 16px 16px;
+  margin: auto;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin: auto;
+}
+
+.title {
+  box-sizing: border-box;
+  height: 60px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: grey;
+}
+
+.emails{
+    box-sizing: border-box;
+    height: 50px;
+    word-break: break-word;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 90%;
+    padding-left: 5%;
+    padding-left: 5%;
+  }
+
+  .title {
+      margin: 0;
+      height: 30px;
+  }
+
+  .description {
+      margin: 0;
+      height: 30px;
+  }
+
+}
 </style>
 </head>
 
@@ -82,6 +156,75 @@ a:hover {color: #a6a6a6;}
 						<a href="schedules/schedule.html"><h3>Schedule</h3></a>
 						There's also the option to look at the whole schedule if you need to plan ahead.
 					</p>
+					<br/>
+					<p>
+						<h3>The Team</h3>
+						
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<br/>
+						<div class="row">
+						<div class="column">
+						  <div class="card">
+						    <img src="anju.png" alt="Anju" style="width:100%">
+						    <div class="container">
+						      <h3>Anju Ishizaki</h3>
+						      <p class="title">Home page, map/directions &amp; favorites</p>
+						      <p class="emails">anju.ishizaki@tufts.edu</p>
+						    </div>
+						  </div>
+						</div>
+
+						<div class="column">
+						  <div class="card">
+						    <img src="cindy.png" alt="Cindy" style="width:100%">
+						    <div class="container">
+						      <h3>Cindy Siu</h3>
+						      <p class="title">Home page, design/layout &amp; backend/frontend</p>
+						      <p class="emails">cindy.siu@tufts.edu</p>\
+						      </p>
+						    </div>
+						  </div>
+						</div>
+
+						<div class="column">
+						  <div class="card">
+						    <img src="irina.png" alt="Irina" style="width:100%">
+						    <div class="container">
+						      <h3>Irina Wang</h3>
+						      <p class="title">Home page, map/directions &amp; favorites</p>
+						      <p class="emails">irina.wang@tufts.edu</p>
+						    </div>
+						  </div>
+						</div>
+
+						<div class="column">
+						  <div class="card">
+						    <img src="mio.png" alt="Mio" style="width:100%">
+						    <div class="container">
+						      <h3>Mio Shimizu</h3>
+						      <p class="title">About, Schedule &amp; Contact</p>
+						      <p class="emails">mio.shimizu@tufts.edu</p>
+
+						    </div>
+						  </div>
+						</div>
+
+						<div class="column">
+						  <div class="card">
+						    <img src="rujen.png" alt="Rujen" style="width:100%">
+						    <div class="container">
+						      <h3>Rujen Amatya</h3>
+						      <p class="title"> Database &amp; backend</p>
+						      <p class="emails">rujen.amatya@tufts.edu</p>
+
+						    </div>
+						  </div>
+						</div>
+					      </div>
 			</td>
 			<td>
 				<div class="img">
