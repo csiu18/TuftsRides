@@ -166,5 +166,5 @@ const interval = setInterval(function() {
             str += stopp;
     }
     document.getElementById("FAVE").innerHTML = str; 
-    console.log(str);
+    // console.log(str);
  }, 1000);
