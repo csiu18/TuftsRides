@@ -144,7 +144,7 @@ const interval = setInterval(function() {
                 stopp = stopp.substring(0, index) + stopp.substring(index + 10);
             } else if (faveStops[i] == "CAMPUS CENTER BACK") {
                 stopp = document.querySelector('#stop3').outerHTML; 
-                index = stopp.search('id="stop"');
+                index = stopp.search('id="stop3"');
                 stopp = stopp.substring(0, index) + stopp.substring(index + 10);
             } else if (faveStops[i] == "CARMICHAEL HALL") {
                 stopp = document.querySelector('#stop4').outerHTML; 
