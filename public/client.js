@@ -134,36 +134,36 @@ const interval = setInterval(function() {
     var stopp = "";
     // console.log("fav stop here " + (faveStops[0]));
     for(var i = 0; i < faveStops.length; i++){
-            if (faveStops[i] == "CAMPUS CENTER FRONT") {
-                stopp = document.querySelector('#stop1').outerHTML; 
-                index = stopp.search('id="stop1"');
-                stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "DAVIS SQUARE") {
-                stopp = document.querySelector('#stop2').outerHTML; 
-                index = stopp.search('id="stop2"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "CAMPUS CENTER BACK") {
-                stopp = document.querySelector('#stop3').outerHTML; 
-                index = stopp.search('id="stop3"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "CARMICHAEL HALL") {
-                stopp = document.querySelector('#stop4').outerHTML; 
-                index = stopp.search('id="stop4"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "OLIN HALL") {
-                stopp = document.querySelector('#stop5').outerHTML; 
-                index = stopp.search('id="stop5"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "AIDEKMANN") {
-                stopp = document.querySelector('#stop6').outerHTML; 
-                index = stopp.search('id="stop6"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            } else if (faveStops[i] == "SMFA") {
-                stopp = document.querySelector('#stop7').outerHTML; 
-                index = stopp.search('id="stop7"');
-                stopp = stopp.substring(0, index) + stopp.substring(index + 10);
-            }
-            str += stopp;
+        if (faveStops[i] == "CAMPUS CENTER FRONT") {
+            stopp = document.querySelector('#stop1').outerHTML; 
+            index = stopp.search('id="stop1"');
+            stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "DAVIS SQUARE") {
+            stopp = document.querySelector('#stop2').outerHTML; 
+            index = stopp.search('id="stop2"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "CAMPUS CENTER BACK") {
+            stopp = document.querySelector('#stop3').outerHTML; 
+            index = stopp.search('id="stop3"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "CARMICHAEL HALL") {
+            stopp = document.querySelector('#stop4').outerHTML; 
+            index = stopp.search('id="stop4"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "OLIN HALL") {
+            stopp = document.querySelector('#stop5').outerHTML; 
+            index = stopp.search('id="stop5"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "AIDEKMANN") {
+            stopp = document.querySelector('#stop6').outerHTML; 
+            index = stopp.search('id="stop6"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        } else if (faveStops[i] == "SMFA") {
+            stopp = document.querySelector('#stop7').outerHTML; 
+            index = stopp.search('id="stop7"');
+            stopp = stopp.substring(0, index) + stopp.substring(index + 10);
+        }
+        str += stopp;
     }
     document.getElementById("FAVE").innerHTML = str; 
     // console.log(str);
