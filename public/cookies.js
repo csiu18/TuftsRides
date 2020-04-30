@@ -50,7 +50,9 @@ function getFavArray()
         var star = "#star" + (i + 1); 
         var starIcon = document.querySelector(star);
 		if(getCookie(nameArray[i]) == "TRUE") {
-			//console.log(nameArray[i])            
+			//console.log(nameArray[i]) 
+
+            
             starIcon.style.color = "white";
 			favs.push(nameArray[i]);
 		} else {
