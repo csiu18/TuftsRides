@@ -29,6 +29,7 @@ async function getTime(stopName) {
     var index = 0;
     var timeObj = {"timea" : ". . .", "timeb" : ". . ."};
 
+    // console.log(stopName + " " + day + " " + hour + " " + isRunning(day, hour, stopName));
     if (!isRunning(day, hour, stopName)) return timeObj;
 
     var stop = await coll.findOne({"stname" : stopName});
@@ -57,8 +58,10 @@ async function getTime(stopName) {
        m2 = stopObj[index + 1].getMinutes();
        diff2 = (h2 * 60 + m2) - (hour * 60 + min);
     }
+
     
     timeObj = {"timea" : diff1, "timeb" : diff2}; 
+    // console.log(timeObj);
 
     return timeObj;
 }
@@ -88,11 +91,11 @@ function isRunning(day, hour, stopName) {
         return false;
     } else if (day == 4 && hour < 7) {
         return false;
-    } else if (day == 5 && hour < 7 && hour > 1) {        
+    } else if (day == 5 && hour < 7 && hour > 0) {        
         return false;
-    } else if (day == 6 && hour < 10 && hour > 1) {
+    } else if (day == 6 && hour < 10 && hour > 2) {
         return false;
-    } else if (day == 0 && (hour > 22 || hour < 10)) {            
+    } else if (day == 0 && (hour > 22 || (hour > 2 && hour < 10))) {            
         return false;
     } 
 

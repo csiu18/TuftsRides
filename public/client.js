@@ -76,8 +76,10 @@ const time7b = document.querySelector('.time7b');
 
 function getTime(time) {
     if (time == ". . ." || time < 0) return ". . .";
-    else if (time >= 60) return "1 hr+";
-    else return time + " min";
+    else if (time >= 60) {
+        if (time > 200) return ". . .";
+        else return "1 hr+";
+   } else return time + " min";
 }
 
 async function getData() {
