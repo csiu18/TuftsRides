@@ -24,6 +24,7 @@ async function startServer() {
 async function getTime(stopName) {
     var today = new Date();
     var day = today.getDay();
+    day = 5;
     var hour = today.getHours();
     var min = today.getMinutes();
     var index = 0;
