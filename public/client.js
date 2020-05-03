@@ -137,7 +137,7 @@ const interval = setInterval(function() {
     var newHeight = "" + height + "px";
 
     if (query != "") {
-        height += 170;
+        height += 180;
         newHeight = "" + height + "px";
     }
 
