@@ -29,7 +29,7 @@ function getResults(){
         stop = document.querySelector('#stop7');
         results.innerHTML = stop.outerHTML;
     } else { 
-        newHeight = parseInt(oldHeight) + 40;
+        newHeight = parseInt(oldHeight) + 75;
         background.style.height = newHeight + "px";
         results.innerHTML = "<p class='no-results'>Stop was not found!</p>";
     }
@@ -43,7 +43,7 @@ function displayFavs() {
     var faveStops = getFavArray();
     var oldHeight = (y.style.height).substring(0,4);
 
-    var height = faveStops.length * 170 + 40 + parseInt(oldHeight);
+    var height = faveStops.length * 180 + 40 + parseInt(oldHeight);
     var newHeight = "" + height + "px"; 
 
     if (x.style.display === "none") {
@@ -133,7 +133,7 @@ const interval = setInterval(function() {
     var x = document.querySelector("#FAVE");
     var y = document.querySelector('.background');
     query = (document.querySelector('.query').value).toLowerCase();
-    height = faveStops.length * 170 + 1540;
+    height = faveStops.length * 180 + 1540;
     var newHeight = "" + height + "px";
 
     if (query != "") {
