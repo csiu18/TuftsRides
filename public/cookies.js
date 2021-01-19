@@ -59,7 +59,6 @@ function getFavArray()
             starIcon.style.color = "black";
         }
 	}
-
 	return favs;
 }
 
